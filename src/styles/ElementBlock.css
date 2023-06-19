@@ -1,0 +1,26 @@
+.element--container{
+    display: flex;
+    flex-direction: column;
+    width: 100px;
+    height: 130px;
+    justify-content: center;
+    align-items: center;
+    border: 5px solid black;
+    cursor: pointer;
+}
+
+.ec--top{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    width: 90%;
+    align-items: center;
+}
+.ec--top> h3{
+    margin: 0px;
+}
+
+
+.ec--mid > h1{
+    margin: 0;
+}
