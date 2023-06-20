@@ -1,0 +1,5 @@
+.hero--img{
+    height: 500px;
+    width: 100vw;
+    object-fit: cover;
+}

@@ -1,15 +1,15 @@
-/* text #0e0c0c
-background #fdfcfc
-primary #475044
-secondary #ffffff
-accent #444750 */
-@import url('https://fonts.googleapis.com/css2?family=Raleway:wght@100;200;300;400&display=swap');
+/* text #040406 />
+background #efeff5
+primary #c1c0d8
+secondary #e0e0eb
+accent #b1b1ce */
+@import url('https://fonts.googleapis.com/css2?family=Raleway:wght@100;200;300;400;500&display=swap');
 
 .nav--bar{
     height: 80px;
     width: 100vw;
-    background-color: #444750;
-    color: #fdfdfd;
+    background-color: whitesmoke;
+    color: black;
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -21,14 +21,21 @@ accent #444750 */
     align-items: center;
 }
 
+.left--nav > svg{
+    height: 35px;
+    width: 35px;
+    margin-left: 10px;
+}
 
 .left--nav> a> h1{
-    margin: 0px 30px;
+    /* margin: 0px 30px; */
+    margin-top: 10px;
+    margin-left: 5px;
     font-family: 'Raleway', sans-serif;
-    font-weight: 400;
+    font-weight: 500;
     letter-spacing: 2px;
     text-decoration: none;
-    color: #fcfcfc;
+    color: black;
 }
 
 .left--nav> a{
@@ -38,4 +45,22 @@ accent #444750 */
 .right--nav{
     display: flex;
     justify-content: space-between;
+    width: 400px;
+    margin-right: 10px;
+    align-items: center;
 }
+
+.right--nav > a{
+    text-decoration: none;
+    color: black;
+    display: flex;
+    justify-content: center;
+}
+
+.right--nav > a> svg{
+    height: 20px;
+    width: 20px;
+    color:#494949;
+}
+
+
