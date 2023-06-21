@@ -1,7 +1,8 @@
 import React from 'react'
 import '../styles/NavBar.css'
 import { Link } from 'react-router-dom'
-import {BsHexagon, BsSearch, BsCart} from 'react-icons/bs'
+import {BsHexagon, BsSearch, BsCart, BsSun} from 'react-icons/bs'
+import {BiMoon, BiSun} from 'react-icons/bi'
 
 
 function NavBar() {
@@ -18,6 +19,8 @@ function NavBar() {
             <Link>Register</Link>
             <Link><BsSearch/></Link>
             <Link><BsCart/> 0</Link>
+            <BiSun />
+            <BiMoon />
         </div>
     </div>
   )
