@@ -24,13 +24,19 @@
 
 .sp--container{
     width: 100%;
-    display: grid;
+    /* display: grid;
     grid-template-columns: 1fr 1fr 1fr 1fr;
-    grid-gap: 1rem;
+    grid-gap: 1rem; */
+    overflow: hidden;
+    white-space: nowrap;
+    scroll-behavior: smooth;
 }
 
+
 .sp--container >a{
+    display: inline-block;
     color: black;
     text-decoration: none;
     justify-self: center;
+    padding: 50px;
 }

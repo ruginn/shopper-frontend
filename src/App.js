@@ -8,6 +8,7 @@ import ProductPage from './Pages/ProductPage';
 import LoginPage from './Pages/LoginPage';
 import Products from './Pages/Products';
 import Footer from './Components/Footer';
+import ScrollToTop from './Components/ScrollToTop';
 
 function App() {
   const result = data.elements.filter(element => element.name.toLowerCase() === 'hydrogen')
@@ -16,10 +17,11 @@ function App() {
   return (
     <div className="App">
       <div className='page--content'>
+      <ScrollToTop />
       <NavBar />
       <Routes>
         <Route path='/' element={<Home/>}/>
-        <Route path='/login' element={<ProductPage/>}/>
+        <Route path='/login' element={<LoginPage/>}/>
         <Route path='/products' element={<Products/>}/>
         <Route path='/products/:productId' element={<ProductPage/>}/>
       </Routes>

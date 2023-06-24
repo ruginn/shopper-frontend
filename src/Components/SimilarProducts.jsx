@@ -1,4 +1,4 @@
-import React from 'react'
+import React, {useRef} from 'react'
 import '../styles/SimilarProduct.css'
 import ElementBlock from './ElementBlock'
 import { Link } from 'react-router-dom'
@@ -26,27 +26,38 @@ const result = otherElements.reduce((resultArray, item, index) => {
 
 console.log(result)
 
+const sideScroll = useRef(null)
+
+
+const scrollLeft = () => {
+  sideScroll.current.scrollLeft -= 700
+}
+
+const scrollRight = () => {
+  sideScroll.current.scrollLeft += 700
+}
 
 
 
-// console.log(chunk)
 
 
 return (
     <div className='similar--products'>
-        <h3>Similar Products</h3>
+        <h3>Similar Elements</h3>
         <div className='sp--outer--container'>
-           <BsFillArrowLeftCircleFill />
-        <div className='sp--container'>
+           {/* {sideScroll?.current?.scrollLeft === 0?'':<BsFillArrowLeftCircleFill onClick={scrollLeft}/>} */}
+           <BsFillArrowLeftCircleFill onClick={scrollLeft}/>
+        <div className='sp--container' ref={sideScroll}>
             {/* <BsFillArrowLeftCircleFill /> */}
-            {otherElements.slice(0, 4).map((element) => (
+            {otherElements.map((element) => (
                 <Link to={`/products/${element.name.toLowerCase()}`} key={element.name}>
                     <ElementBlock element={element}/>
                 </Link>
             ))}
             {/* <BsFillArrowRightCircleFill /> */}
         </div>
-        <BsFillArrowRightCircleFill />
+        {/* {sideScroll?.current?.scrollLeft ===0?<BsFillArrowRightCircleFill  onClick={scrollRight}/>:''} */}
+        <BsFillArrowRightCircleFill  onClick={scrollRight}/>
         </div>
 
     </div>

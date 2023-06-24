@@ -8,7 +8,6 @@ import PeriodicTable from '../Components/PeriodicTable'
 
 function ProductPage() {
   const params = useParams()
-  // const currElement = params.productId
 
   const currElement = data.elements.filter(element => element.name.toLowerCase() === `${params.productId}`)
   const element = currElement[0]
@@ -58,7 +57,6 @@ function ProductPage() {
         </div>
         <PeriodicTable currElement={element.name}/>
         <SimilarProducts similar={similar} name={element.name}/>
-        {/* <PeriodicTable /> */}
     </div>
 
   )

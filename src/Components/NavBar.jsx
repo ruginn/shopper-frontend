@@ -15,7 +15,7 @@ function NavBar() {
             <Link to={`/products`}>products</Link>
         </div>
         <div className='right--nav'>
-            <Link>Sign in</Link>
+            <Link to={'/login'}>Sign in</Link>
             <Link>Register</Link>
             <Link><BsSearch/></Link>
             <Link><BsCart/> 0</Link>
