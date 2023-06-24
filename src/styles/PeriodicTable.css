@@ -1,0 +1,54 @@
+.periodic--table--content{
+    width: 90%;
+    border-top: 1px solid black;
+    /* color: #9795c1 */
+    margin-top: 20px;
+    margin-bottom: 20px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.periodic--table--content >h3{
+    align-self: flex-start;
+}
+.periodic-table {
+    /* width: 90vw; */
+    display: grid;
+    grid-template-columns: repeat(18, 30px);
+    grid-template-rows: repeat(10, 30px);
+    grid-gap: 6px;
+  }
+
+
+  
+  .element {
+    background: white;
+    border: 2px solid #aaa;
+    display: flex;
+    position: relative;
+    align-items: center;
+    justify-content: center;
+  }
+  
+  /* .element:hover {
+    cursor: pointer;
+    transform: scale(1.25, 1.25);
+    z-index: 1;
+  } */
+  
+  .element .number {
+    font-size: 8px;
+    position: absolute;
+    top: 5px;
+    left: 5px;
+  }
+  
+  .element .name {
+    font-size: 10px;
+    font-weight: 500;
+    position: absolute;
+    bottom: 5px;
+    left: 5px;
+  }

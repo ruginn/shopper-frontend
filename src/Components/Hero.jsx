@@ -4,8 +4,11 @@ import '../styles/Hero.css'
 
 export default function Hero() {
   return (
-    <div>
-    <img src={chemSet} alt="" className='hero--img' />
+    <div className='hero--img'>
+      <div className='hero--content'>
+        <p>Welcome to proteus</p>
+        <h2>this is it</h2>
+      </div>
     </div>
   )
 }

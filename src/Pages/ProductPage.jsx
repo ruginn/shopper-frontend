@@ -4,6 +4,7 @@ import data from '../periodTable.json'
 import ElementBlock from '../Components/ElementBlock'
 import '../styles/ProductPage.css'
 import SimilarProducts from '../Components/SimilarProducts'
+import PeriodicTable from '../Components/PeriodicTable'
 
 function ProductPage() {
   const params = useParams()
@@ -55,7 +56,9 @@ function ProductPage() {
           <p>{element.density}</p>
           </div>
         </div>
+        <PeriodicTable currElement={element.name}/>
         <SimilarProducts similar={similar} name={element.name}/>
+        {/* <PeriodicTable /> */}
     </div>
 
   )
