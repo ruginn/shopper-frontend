@@ -7,6 +7,7 @@ import Home from './Pages/Home';
 import ProductPage from './Pages/ProductPage';
 import LoginPage from './Pages/LoginPage';
 import Products from './Pages/Products';
+import Footer from './Components/Footer';
 
 function App() {
   const result = data.elements.filter(element => element.name.toLowerCase() === 'hydrogen')
@@ -14,6 +15,7 @@ function App() {
   
   return (
     <div className="App">
+      <div className='page--content'>
       <NavBar />
       <Routes>
         <Route path='/' element={<Home/>}/>
@@ -21,6 +23,9 @@ function App() {
         <Route path='/products' element={<Products/>}/>
         <Route path='/products/:productId' element={<ProductPage/>}/>
       </Routes>
+      </div>
+      <Footer />
+
       {/* {data.elements.map((element) => (
         <div key={element.name}>
           <span>{element.name}</span>

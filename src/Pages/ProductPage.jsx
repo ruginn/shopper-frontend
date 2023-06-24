@@ -3,6 +3,7 @@ import {useParams} from 'react-router-dom'
 import data from '../periodTable.json'
 import ElementBlock from '../Components/ElementBlock'
 import '../styles/ProductPage.css'
+import SimilarProducts from '../Components/SimilarProducts'
 
 function ProductPage() {
   const params = useParams()
@@ -54,6 +55,7 @@ function ProductPage() {
           <p>{element.density}</p>
           </div>
         </div>
+        <SimilarProducts similar={similar} name={element.name}/>
     </div>
 
   )

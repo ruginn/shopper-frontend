@@ -1,0 +1,36 @@
+.similar--products{
+    width: 90%;
+    border-top: 1px solid black;
+}
+
+
+.sp--outer--container{
+    display: flex;
+    width: 100%;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.sp--outer--container >svg{
+    height: 40px;
+    width: 40px;
+    cursor: pointer;
+    color: lightgray;
+}
+
+.sp--outer--container> svg:hover{
+    color: #c1c0d8;
+}
+
+.sp--container{
+    width: 100%;
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+    grid-gap: 1rem;
+}
+
+.sp--container >a{
+    color: black;
+    text-decoration: none;
+    justify-self: center;
+}

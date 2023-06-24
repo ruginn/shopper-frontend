@@ -1,5 +1,7 @@
 .App {
-  /* background-color: whitesmoke; */
+  position: relative;
+  min-height: 100vh;
 }
-
-
+.page--content{
+  padding-bottom: 200px;
+}
