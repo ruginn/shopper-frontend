@@ -1,0 +1,17 @@
+.mid--home{
+    display: flex;
+    flex-direction: row;
+    /* justify-content: space-between;
+     */
+     justify-content: space-evenly;
+    width: 100%; 
+    align-items: center;
+}
+
+
+.circle--home{
+    width: 150px;
+    height: 150px;
+    border-radius: 50%;
+    background-color: rgba(191, 151, 227, 0.443);
+}

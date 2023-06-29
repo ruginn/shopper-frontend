@@ -45,7 +45,6 @@ return (
     <div className='similar--products'>
         <h3>Similar Elements</h3>
         <div className='sp--outer--container'>
-           {/* {sideScroll?.current?.scrollLeft === 0?'':<BsFillArrowLeftCircleFill onClick={scrollLeft}/>} */}
            <BsFillArrowLeftCircleFill onClick={scrollLeft}/>
         <div className='sp--container' ref={sideScroll}>
             {/* <BsFillArrowLeftCircleFill /> */}
@@ -56,7 +55,6 @@ return (
             ))}
             {/* <BsFillArrowRightCircleFill /> */}
         </div>
-        {/* {sideScroll?.current?.scrollLeft ===0?<BsFillArrowRightCircleFill  onClick={scrollRight}/>:''} */}
         <BsFillArrowRightCircleFill  onClick={scrollRight}/>
         </div>
 
