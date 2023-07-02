@@ -16,9 +16,9 @@ function NavBar() {
         </div>
         <div className='right--nav'>
             <Link to={'/login'}>Sign in</Link>
-            <Link>Register</Link>
+            <Link to={'/register'}>Register</Link>
             <Link><BsSearch/></Link>
-            <Link><BsCart/> 0</Link>
+            <Link to={'/cart'}><BsCart/> 0</Link>
             <BiSun />
             <BiMoon />
         </div>

@@ -9,6 +9,8 @@ import LoginPage from './Pages/LoginPage';
 import Products from './Pages/Products';
 import Footer from './Components/Footer';
 import ScrollToTop from './Components/ScrollToTop';
+import Cart from './Pages/Cart';
+import Register from './Pages/Register';
 
 function App() {
   const result = data.elements.filter(element => element.name.toLowerCase() === 'hydrogen')
@@ -22,6 +24,8 @@ function App() {
       <Routes>
         <Route path='/' element={<Home/>}/>
         <Route path='/login' element={<LoginPage/>}/>
+        <Route path='/cart' element={<Cart/>}/>
+        <Route path='/register' element={<Register/>}/>
         <Route path='/products' element={<Products/>}/>
         <Route path='/products/:productId' element={<ProductPage/>}/>
       </Routes>
