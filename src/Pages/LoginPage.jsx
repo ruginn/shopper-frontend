@@ -1,18 +1,49 @@
-import React from 'react'
-import { Link } from 'react-router-dom'
+import React, {useEffect, useState} from 'react'
+import {useDispatch, useSelector} from 'react-redux'
+import { Link, useNavigate } from 'react-router-dom'
+import { login } from '../features/auth/authSlice'
 
 function LoginPage() {
+  const {user, isSuccess} = useSelector((state) => state.auth)
+  const dispatch = useDispatch()
+  const navigate = useNavigate()
+  const [loginData, setLoginData] = useState({
+    'email': '', 
+    'password': ''
+  })
+
+  useEffect(() =>{
+    if(user ) {
+      navigate('/')
+    }
+
+  }, user, isSuccess)
+
+  const {email, password} = loginData
+  const onChange = (e) => {
+    setLoginData((prevState) => (
+      {
+        ...prevState, 
+        [e.target.name] : e.target.value
+      }
+    ))
+  }
+
+  const onSubmit = (e)=>{
+    e.preventDefault()
+    dispatch(login(loginData))
+  }
   return (
     <div>
       <h3>Welcome to Proteus</h3>
       <p>Sign in to your Proteus account</p>
-      <form action="">
-        <label htmlFor="">Email</label>
-        <input type="text" />
-        <label htmlFor="">Password</label>
-        <input type="password" />
+      <form onSubmit={onSubmit}>
+        <label htmlFor="email">Email</label>
+        <input type="text" id='email' name='email' value={email} onChange={onChange}/>
+        <label htmlFor="password">Password</label>
+        <input type="password" id='password' name='password' value={password} onChange={onChange}/>
         <Link>Forgot Password</Link>
-        <button type='button'>Sign in</button>
+        <button type='submit'>Sign in</button>
       </form>
       <p>or</p>
       <Link to={'/register'}><button>Create Account</button></Link>

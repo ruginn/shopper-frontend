@@ -11,9 +11,22 @@ const register = async (userData) => {
     return response.data
 }
 
+const login = async (userData) => {
+    const response = await API.post('api/auth/login', userData)
+
+    if(response.data) {
+        localStorage.setItem('auth', JSON.stringify(response.data))
+    }
+    return response.data
+}
+
+const logout = async(userData) =>{
+    localStorage.removeItem('auth')
+}
+
 
 const authServices = {
-    register
+    register, login, logout
 }
 
 export default authServices

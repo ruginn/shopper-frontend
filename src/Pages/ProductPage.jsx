@@ -13,7 +13,7 @@ function ProductPage() {
   const element = currElement[0]
   
   const similar = data.elements.filter(elements => elements.category === element.category)
-  const cost = Math.round(element.atomic_mass * element.number * 100)/100
+  const cost = Math.round(element.atomic_mass) * Math.round(element.number) + 0.99
   return (
     
     <div className='product--item--container'>
