@@ -10,6 +10,7 @@ import { useDispatch } from 'react-redux'
 
 function NavBar() {
   const user = useSelector((state) => state.auth.user)
+  const cartItems = useSelector((state) => state.cart.cartItems)
   const dispatch = useDispatch()
   const signOut = () => {
     dispatch(logout())
@@ -25,7 +26,7 @@ function NavBar() {
             {!user ?<Link to={'/login'}>Sign in</Link>: <p onClick={signOut}>Logout</p>}
             <Link to={'/register'}>Register</Link>
             <Link><BsSearch/></Link>
-            <Link to={'/cart'}><BsCart/> 0</Link>
+            <Link to={'/cart'}><BsCart/>{cartItems}</Link>
             <BiSun />
             <BiMoon />
         </div>

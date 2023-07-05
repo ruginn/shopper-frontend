@@ -5,15 +5,24 @@ import ElementBlock from '../Components/ElementBlock'
 import '../styles/ProductPage.css'
 import SimilarProducts from '../Components/SimilarProducts'
 import PeriodicTable from '../Components/PeriodicTable'
+import { addItem } from '../features/cart/cartSlice'
+import { useDispatch } from 'react-redux'
 
 function ProductPage() {
   const params = useParams()
+  const dispatch = useDispatch()
 
   const currElement = data.elements.filter(element => element.name.toLowerCase() === `${params.productId}`)
   const element = currElement[0]
   
   const similar = data.elements.filter(elements => elements.category === element.category)
   const cost = Math.round(element.atomic_mass) * Math.round(element.number) + 0.99
+
+  const addItemToCart = () =>{
+    dispatch(addItem(currElement[0]))
+  }
+
+
   return (
     
     <div className='product--item--container'>
@@ -31,7 +40,7 @@ function ProductPage() {
           <div className='pp--right'>
             <h2>${cost}</h2>
             <button>Request a Quote</button>
-            <button className='primary--button'>Add to Cart</button>
+            <button className='primary--button' onClick={addItemToCart}>Add to Cart</button>
           </div>
         </div>
         <div className="product--info">
@@ -45,6 +54,8 @@ function ProductPage() {
           <p>{element.symbol}</p>
           <p className='bold'>Atomic Mass (g/mol)</p>
           <p>{Math.round(element.atomic_mass * 100)/100}</p>
+          <p className="bold">Chemical Number</p>
+          <p>{element.number}</p>
           <p className="bold">Boiling Point (K)</p>
           <p>{element.boil}</p>
           <p className="bold">Melting Point (K)</p>

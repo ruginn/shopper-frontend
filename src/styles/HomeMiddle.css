@@ -10,8 +10,8 @@
 
 
 .circle--home{
-    width: 150px;
-    height: 150px;
+    width: 225px;
+    height: 225px;
     border-radius: 50%;
-    background-color: rgba(191, 151, 227, 0.443);
+    background-color: #dfdeef;
 }
