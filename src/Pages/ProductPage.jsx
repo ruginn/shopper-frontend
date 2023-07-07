@@ -1,4 +1,4 @@
-import React from 'react'
+import React, {useState} from 'react'
 import {useParams} from 'react-router-dom'
 import data from '../periodTable.json'
 import ElementBlock from '../Components/ElementBlock'
@@ -7,10 +7,12 @@ import SimilarProducts from '../Components/SimilarProducts'
 import PeriodicTable from '../Components/PeriodicTable'
 import { addItem } from '../features/cart/cartSlice'
 import { useDispatch } from 'react-redux'
+import QuoteModal from '../Components/QuoteModal'
 
 function ProductPage() {
   const params = useParams()
   const dispatch = useDispatch()
+  const [quoteModal, setQuoteModal] = useState(false)
 
   const currElement = data.elements.filter(element => element.name.toLowerCase() === `${params.productId}`)
   const element = currElement[0]
@@ -20,6 +22,10 @@ function ProductPage() {
 
   const addItemToCart = () =>{
     dispatch(addItem(currElement[0]))
+  }
+
+  const clickQuote = () => {
+    setQuoteModal(true)
   }
 
 
@@ -39,7 +45,7 @@ function ProductPage() {
           </div>
           <div className='pp--right'>
             <h2>${cost}</h2>
-            <button>Request a Quote</button>
+            <button onClick={clickQuote}>Request a Quote</button>
             <button className='primary--button' onClick={addItemToCart}>Add to Cart</button>
           </div>
         </div>
@@ -68,6 +74,7 @@ function ProductPage() {
         </div>
         <PeriodicTable currElement={element.name}/>
         <SimilarProducts similar={similar} name={element.name}/>
+        <QuoteModal quoteModal={quoteModal} setQuoteModal={setQuoteModal}/>
     </div>
 
   )

@@ -12,11 +12,11 @@ export const cartSlice = createSlice({
             let pastItems
             if (localStorage.getItem('cart')){
                 console.log('hello')
-                pastItems = [JSON.parse(localStorage.getItem('cart'))]
-                // pastItems.push(info.payload.name)
+                pastItems = JSON.parse(localStorage.getItem('cart'))
+                pastItems.push(info.payload.name)
                 localStorage.setItem('cart', JSON.stringify(pastItems))
             }else {
-                localStorage.setItem('cart', info.payload.name)
+                localStorage.setItem('cart', [info.payload.name])
             }
             state.cartItems += 1
         }
