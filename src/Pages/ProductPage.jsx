@@ -1,13 +1,14 @@
-import React, {useState} from 'react'
+import React, {useEffect, useState} from 'react'
 import {useParams} from 'react-router-dom'
 import data from '../periodTable.json'
 import ElementBlock from '../Components/ElementBlock'
 import '../styles/ProductPage.css'
 import SimilarProducts from '../Components/SimilarProducts'
 import PeriodicTable from '../Components/PeriodicTable'
-import { addItem } from '../features/cart/cartSlice'
+import { addItem, getItems } from '../features/cart/cartSlice'
 import { useDispatch } from 'react-redux'
 import QuoteModal from '../Components/QuoteModal'
+
 
 function ProductPage() {
   const params = useParams()
@@ -21,11 +22,32 @@ function ProductPage() {
   const cost = Math.round(element.atomic_mass) * Math.round(element.number) + 0.99
 
   const addItemToCart = () =>{
-    dispatch(addItem(currElement[0]))
+    currElement[0].qty = qtyData
+    currElement[0].cost = cost
+    const sendData = {
+      element: currElement[0].name, 
+      qtyData, 
+      cost,
+    }
+    dispatch(addItem(sendData))
+    console.log(currElement[0])
   }
 
   const clickQuote = () => {
     setQuoteModal(true)
+  }
+
+  useEffect(() => {
+    dispatch(getItems())
+  }, addItemToCart)
+
+  const numbers = [1, 2, 3, 4, 5, 6, 7, 8, 9]
+
+  const [qtyData, setQtyData] = useState(1)
+  const changeQty = (e) => {
+    setQtyData((prev) => (
+      prev = e.target.value)
+    )
   }
 
 
@@ -45,6 +67,14 @@ function ProductPage() {
           </div>
           <div className='pp--right'>
             <h2>${cost}</h2>
+            <form action="">
+              <label htmlFor="Qty">Qty:</label>
+              <select name="Qty" id="qty" value={qtyData} onChange={changeQty}>
+                {numbers.map(num => (
+                  <option value={num} key={num}>{num}</option>
+                ))}
+              </select>
+            </form>
             <button onClick={clickQuote}>Request a Quote</button>
             <button className='primary--button' onClick={addItemToCart}>Add to Cart</button>
           </div>

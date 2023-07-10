@@ -6,15 +6,28 @@ import {BiMoon, BiSun} from 'react-icons/bi'
 import { logout } from '../features/auth/authSlice'
 import { useSelector } from 'react-redux/es/hooks/useSelector'
 import { useDispatch } from 'react-redux'
+import { changeMode } from '../features/general'
+import { getItems } from '../features/cart/cartSlice'
 
 
 function NavBar() {
   const user = useSelector((state) => state.auth.user)
-  const cartItems = useSelector((state) => state.cart.cartItems)
   const dispatch = useDispatch()
+  const mode = useSelector((state) => state.general.mode)
   const signOut = () => {
     dispatch(logout())
   }
+  const activateMode = () => {
+    dispatch(changeMode())
+  }
+  
+  const {cartItems} = useSelector((state) => state.cart)
+
+  useEffect(() => {
+    dispatch(getItems())
+  },[])
+
+
   return (
     <div className='nav--bar'>
         <div className='left--nav'>
@@ -27,8 +40,8 @@ function NavBar() {
             <Link to={'/register'}>Register</Link>
             <Link><BsSearch/></Link>
             <Link to={'/cart'}><BsCart/>{cartItems}</Link>
-            <BiSun />
-            <BiMoon />
+            {mode === 'light'?<BiSun onClick={activateMode}/>:
+            <BiMoon onClick={activateMode}/>}
         </div>
     </div>
   )

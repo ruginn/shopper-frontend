@@ -24,7 +24,6 @@ const result = otherElements.reduce((resultArray, item, index) => {
   return resultArray
 }, [])
 
-console.log(result)
 
 const sideScroll = useRef(null)
 

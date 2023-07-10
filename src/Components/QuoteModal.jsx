@@ -16,7 +16,9 @@ export default function QuoteModal({quoteModal, setQuoteModal}) {
         <form action="">
             <label htmlFor="name">name</label>
             <input type="text" />
-            <label htmlFor="amount">amount</label>
+            <label htmlFor="Amount">amount</label>
+            <input type="text" />
+            <label htmlFor="">Message</label>
             <input type="text" />
             <button type='submit'>Request quote</button>
         </form>
