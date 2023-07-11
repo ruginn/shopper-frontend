@@ -15,12 +15,12 @@ export default function Products() {
     console.log(searcher.searchPara)
     console.log(filterElements.length)
     console.log(filterElements[0]?.name)
-  }, [searcher])
+  }, [searcher, filterElements])
 
   
   return (
     <div className='product--container'>
-        {filterElements.length > 0? 'yes': 'no'}
+        {filterElements.length < 0 ? `yes` : 'no'}
         {data.elements.map((element) => (
         <div key={element.name}>
             <Link to={`/products/${element.name.toLowerCase()}`}>
