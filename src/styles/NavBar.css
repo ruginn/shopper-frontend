@@ -42,11 +42,56 @@ accent #b1b1ce */
     text-decoration: none;
 }
 
+.search--nav{
+    width: 450px;
+    height: 40px;
+    border-radius: 20px;
+    border: 1px solid rgb(130, 130, 130);
+    display: flex;
+    align-items: center;
+}
+.search--nav > form{
+    cursor: pointer;
+    display: flex;
+    width: 100%;
+    justify-content: space-between;
+    align-items: center;
+}
+.search--nav > form > input{    
+    outline: none;
+    border: none;
+    background-color: transparent;
+    margin-left: 15px;
+    height: 40px;
+    width: 370px;
+    font-size: 18px;
+}
+
+.search--nav > form > button{
+    z-index: 10;
+    border: 1px solid #cccccc;
+    background-color: #cfcee1;
+    height: 41px;
+    width: 80px;
+    border-radius: 0px 20px 20px 0px;
+    cursor: pointer;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.search--nav > form > button > svg{
+    height: 20px;
+    width: 20px;  
+    color: rgb(71, 71, 71) 
+}
+
+
+
 .right--nav{
     display: flex;
     justify-content: space-between;
-    width: 400px;
-    margin-right: 10px;
+    width: 200px;
+    margin-right: 20px;
     align-items: center;
 }
 

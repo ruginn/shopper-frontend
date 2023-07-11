@@ -1,7 +1,8 @@
 import {createSlice} from '@reduxjs/toolkit'
 
 const initialState = {
-    mode: 'light'
+    mode: 'light', 
+    search: '',
 }
 
 export const generalSlice = createSlice({
@@ -13,13 +14,16 @@ export const generalSlice = createSlice({
                 state.mode = 'dark'
             } else{
                 state.mode = 'light'
-            }
-                
+            }         
+        }, 
+        searchParas: (state, info) =>{
+            state.search = info.payload
         }
+
     }
 })
 
-export const {changeMode} = generalSlice.actions
+export const {changeMode, searchParas} = generalSlice.actions
 export default generalSlice.reducer;
 
 
