@@ -1,0 +1,11 @@
+.item--main{
+    width: 600px;
+    display: flex;
+    align-items: center;
+}
+
+.item--main >p{
+    width: 60px;
+    height: 80px;
+    border: 1px solid black;
+}

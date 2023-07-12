@@ -20,6 +20,12 @@ function ProductPage() {
   
   const similar = data.elements.filter(elements => elements.category === element.category)
   const cost = Math.round(element.atomic_mass) * Math.round(element.number) + 0.99
+  
+  const numComma = (num) =>{
+    let num_parts = num.toString().split(".");
+    num_parts[0] = num_parts[0].replace(/\B(?=(\d{3})+(?!\d))/g, ",");
+    return num_parts.join(".");
+  }
 
   const addItemToCart = () =>{
     currElement[0].qty = qtyData
@@ -66,7 +72,7 @@ function ProductPage() {
             <span>{element.discovered_by}</span>
           </div>
           <div className='pp--right'>
-            <h2>${cost}</h2>
+            <h2>${numComma(cost)}</h2>
             <form action="">
               <label htmlFor="Qty">Qty:</label>
               <select name="Qty" id="qty" value={qtyData} onChange={changeQty}>
