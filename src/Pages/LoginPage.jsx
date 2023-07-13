@@ -2,6 +2,7 @@ import React, {useEffect, useState} from 'react'
 import {useDispatch, useSelector} from 'react-redux'
 import { Link, useNavigate } from 'react-router-dom'
 import { login } from '../features/auth/authSlice'
+import '../styles/LoginPage.css'
 
 function LoginPage() {
   const {user, isSuccess} = useSelector((state) => state.auth)
@@ -34,10 +35,13 @@ function LoginPage() {
     dispatch(login(loginData))
   }
   return (
-    <div>
-      <h3>Welcome to Proteus</h3>
-      <p>Sign in to your Proteus account</p>
-      <form onSubmit={onSubmit}>
+    <div className='login--main'>
+      <div className="login--top">
+        <h1>Welcome to Proteus</h1>
+        <p>Sign in to your Proteus account</p>
+      </div>
+      
+      <form onSubmit={onSubmit} className='login--mid'>
         <label htmlFor="email">Email</label>
         <input type="text" id='email' name='email' value={email} onChange={onChange}/>
         <label htmlFor="password">Password</label>
@@ -45,8 +49,10 @@ function LoginPage() {
         <Link>Forgot Password</Link>
         <button type='submit'>Sign in</button>
       </form>
-      <p>or</p>
-      <Link to={'/register'}><button>Create Account</button></Link>
+      <div className="login--mid">
+        <p>or</p>
+        <Link to={'/register'}><button>Create Account</button></Link>
+      </div>
     </div>
   )
 }

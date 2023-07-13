@@ -1,0 +1,40 @@
+.login--main{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    /* width: 500px; */
+    /* background-color: red; */
+    /* height: 100% - 360px; */
+}
+.login--top{
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: flex-start;
+}
+.login--mid{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    /* align-items: center; */
+}
+.login--mid > input{
+    width: 500px;
+    height: 35px;
+    outline: none;
+}
+
+.login--mid > button{
+    /* width: 600px; */
+    height: 35px;
+    outline: none;
+    border: none;
+    margin: 10px;
+    font-family: sans-serif;
+    font-size: 16px;
+}
+
+.login--mid > p{
+    margin: 0;
+}
