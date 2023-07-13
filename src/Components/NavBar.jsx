@@ -38,6 +38,7 @@ function NavBar() {
 
   const onSearch = (e) => {
     e.preventDefault()
+    navigate('/products')
     console.log(searchPara)
   }
 

@@ -21,7 +21,7 @@ function CartItem() {
                   <option value={num} key={num}>{num}</option>
                 ))}
               </select>
-            </form>
+        </form>
         <h4>$34.99</h4>
     </div>
   )

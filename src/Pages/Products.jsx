@@ -9,19 +9,13 @@ export default function Products() {
   // const filterElements = data.elements.filter((element) => element.name.toLowerCase().includes('hydro'))
   // console.log(filterElements)
   const searcher = useSelector((state) => state.general.search)
-  let filterElements = []
-  useEffect(() => {
-    filterElements = data.elements.filter((element) => element.name.toLowerCase().includes(`${searcher.searchPara}`))
-    console.log(searcher.searchPara)
-    console.log(filterElements.length)
-    console.log(filterElements[0]?.name)
-  }, [searcher, filterElements])
+  const elements = useSelector((state) => state.general.chemicals)
+  
 
   
   return (
     <div className='product--container'>
-        {filterElements.length < 0 ? `yes` : 'no'}
-        {data.elements.map((element) => (
+        {elements.map((element) => (
         <div key={element.name}>
             <Link to={`/products/${element.name.toLowerCase()}`}>
             <ElementBlock element={element}/>
