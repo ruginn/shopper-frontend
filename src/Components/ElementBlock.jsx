@@ -2,6 +2,7 @@ import React from 'react'
 import '../styles/ElementBlock.css'
 
 function ElementBlock({element}) {
+
   return (
     <div className='element--container'>
         <div className='ec--top'>

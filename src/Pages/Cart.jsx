@@ -2,12 +2,18 @@ import React from 'react'
 import '../styles/Cart.css'
 import CartItem from '../Components/CartItem'
 
+
 function Cart() {
+  const cartItem = JSON.parse(localStorage.getItem('cart'))
   return (
     <div className='cart--main'>
         <div className='cart--left'>
-        <CartItem />
-        <CartItem />
+        
+        {cartItem?cartItem.map((item) => 
+          (
+            <CartItem item={item} key={item.element}/>
+        )
+        ):<></>}
         </div>
         <div className="cart--right">
         <div className="order--summary">

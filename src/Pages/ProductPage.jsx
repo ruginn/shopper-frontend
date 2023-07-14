@@ -19,8 +19,10 @@ function ProductPage() {
   const element = currElement[0]
   
   const similar = data.elements.filter(elements => elements.category === element.category)
-  const cost = Math.round(element.atomic_mass) * Math.round(element.number) + 0.99
   
+  // Generate arbitary cost of element
+  const cost = Math.round(element.atomic_mass) * Math.round(element.number) + 0.99
+
   const numComma = (num) =>{
     let num_parts = num.toString().split(".");
     num_parts[0] = num_parts[0].replace(/\B(?=(\d{3})+(?!\d))/g, ",");
@@ -28,15 +30,17 @@ function ProductPage() {
   }
 
   const addItemToCart = () =>{
-    currElement[0].qty = qtyData
-    currElement[0].cost = cost
     const sendData = {
-      element: currElement[0].name, 
+      element: currElement[0].name,
+      name: currElement[0].name,
+      atomic_mass: currElement[0].atomic_mass,
+      symbol: currElement[0].symbol, 
+      number: currElement[0].number,
       qtyData, 
-      cost,
+      unitCost: cost,
+
     }
     dispatch(addItem(sendData))
-    console.log(currElement[0])
   }
 
   const clickQuote = () => {
@@ -45,7 +49,7 @@ function ProductPage() {
 
   useEffect(() => {
     dispatch(getItems())
-  }, addItemToCart)
+  }, [addItemToCart])
 
   const numbers = [1, 2, 3, 4, 5, 6, 7, 8, 9]
 
@@ -55,6 +59,10 @@ function ProductPage() {
       prev = e.target.value)
     )
   }
+
+  useEffect(() => {
+    setQtyData(1)
+  }, [params])
 
 
   return (
@@ -74,7 +82,7 @@ function ProductPage() {
           <div className='pp--right'>
             <h2>${numComma(cost)}</h2>
             <form action="">
-              <label htmlFor="Qty">Qty:</label>
+              <label htmlFor="qty">Qty:</label>
               <select name="Qty" id="qty" value={qtyData} onChange={changeQty}>
                 {numbers.map(num => (
                   <option value={num} key={num}>{num}</option>

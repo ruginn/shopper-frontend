@@ -28,21 +28,27 @@ export const cartSlice = createSlice({
                 if (sameElement[0]){
                     pastItems = [...otherElements, sameElement[0]]
                 }
-
-                
-
                 localStorage.setItem('cart', JSON.stringify(pastItems))
             }else {
                 localStorage.setItem('cart', JSON.stringify([info.payload]))
             }
-            const cartItem = localStorage.getItem('cart')
-            const cartItemVal = JSON.parse(cartItem).length
-            state.cartItems = cartItemVal
+            const cartItem = JSON.parse(localStorage.getItem('cart'))
+            // const cartItemVal = JSON.parse(cartItem).length
+            let totalItems = 0
+            for (let i = 0; i < cartItem.length; i++){
+                totalItems += Number(cartItem[i].qtyData)
+            }
+            state.cartItems = totalItems
         },
         getItems: (state) =>{
             if (localStorage.getItem('cart')){
-                const cartItems = localStorage.getItem('cart')
-                state.cartItems = (JSON.parse(cartItems)).length
+                const cartItem = JSON.parse(localStorage.getItem('cart'))
+            let totalItems = 0
+            for (let i = 0; i < cartItem.length; i++){
+                totalItems += Number(cartItem[i].qtyData)
+            }
+            state.cartItems = totalItems
+
             }else{
                 state.cartItems = 0
             }
