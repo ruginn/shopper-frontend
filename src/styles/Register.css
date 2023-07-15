@@ -1,0 +1,39 @@
+.register--main{
+    width: 100vw;
+    display: flex;
+    height: calc(100vh - 360px);
+    margin-bottom: -100px;
+}
+
+.register--left{
+    width: 50%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    /* align-items: center; */
+    margin-left: 40px;
+    margin-bottom: 200px;
+}
+
+.register--left > form{
+    display: flex;
+    flex-direction: column;
+    width: 300px;
+}
+
+.register--left > button{
+    width: 300px;
+}
+
+.register--left > a> button{
+    width: 300px;
+}
+
+
+
+.register--right{
+    width: 50%;
+    color: white;
+    padding-left: 45px;
+    background-color: rgb(125, 123, 135);
+}

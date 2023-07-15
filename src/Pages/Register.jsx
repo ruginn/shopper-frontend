@@ -2,6 +2,7 @@ import React, {useEffect, useState} from 'react'
 import { useSelector, useDispatch } from 'react-redux'
 import {Link} from 'react-router-dom'
 import { register, reset } from '../features/auth/authSlice'
+import '../styles/Register.css'
 
 function Register() {
     const dispatch = useDispatch()
@@ -31,7 +32,7 @@ function Register() {
   
   
     return (
-    <div>
+    <div className='register--main'>
         <div className='register--left'>
             <h3>Create Account</h3>
             <p>Create your Proteus account to start earing points and rewards today</p>
@@ -52,7 +53,15 @@ function Register() {
             <p>or</p>
             <Link to='/login'><button>Sign in</button></Link>
         </div>
-        <div className="register--right"></div>
+        <div className="register--right">
+            <h1>Sign up for your FREE Proteus account and enjoy these benefits:</h1>
+            <h3>Exclusive Rates</h3>
+            <p>Custom same-day quotations</p>
+            <h3>Order Tracking</h3>
+            <p>Check the current status on all your orders</p>
+            <h3>Speedy Checkout</h3>
+            <p>Save you info for a quick checkout</p>
+        </div>
     </div>
   )
 }

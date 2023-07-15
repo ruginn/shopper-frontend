@@ -2,7 +2,7 @@
 .Footer{
     position: absolute;
     bottom: 0px;
-    margin-top: 100px;
+    /* margin-top: 100px; */
     width: 100vw;
     background-color: #c1c0d8;
     height: 280px;
