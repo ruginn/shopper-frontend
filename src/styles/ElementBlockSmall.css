@@ -1,8 +1,8 @@
-.element--container{
+.element--container--small{
     display: flex;
     flex-direction: column;
-    width: 100px;
-    height: 130px;
+    width: 80px;
+    height: 100px;
     justify-content: center;
     align-items: center;
     border: 5px solid black;
@@ -10,7 +10,7 @@
     text-decoration: none;
 }
 
-.ec--top{
+.ec--top--small{
     display: flex;
     flex-direction: row;
     justify-content: space-between;
@@ -18,13 +18,27 @@
     align-items: center;
     text-decoration: none;
 }
-.ec--top> h3{
+
+
+
+.ec--top--small> h3{
     margin: 0px;
+    font-size: 16px;
     text-decoration: none;
 }
 
+.ec--top--small> p{
+    /* margin: 0px; */
+    font-size: 12px;
+    text-decoration: none;
+}
 
-.ec--mid > h1{
+.ec--mid--small > h1{
     margin: 0;
+    text-decoration: none;
+}
+
+.ec--bottom--small > p {
+    font-size: 12px;
     text-decoration: none;
 }

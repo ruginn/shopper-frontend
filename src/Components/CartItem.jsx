@@ -1,6 +1,7 @@
-import React, {useState} from 'react'
+import React, {useState, useEffect} from 'react'
+import {Link} from 'react-router-dom'
 import '../styles/CartItem.css'
-import ElementBlock from './ElementBlock'
+import ElementBlockSmall from './ElementBlockSmall'
 
 function CartItem({item}) {
     const numbers = [1, 2, 3, 4, 5, 6, 7, 8, 9]
@@ -10,21 +11,30 @@ function CartItem({item}) {
       prev = e.target.value)
     )
     }
+
+
+    const numComma = (num) =>{
+      let num_parts = num.toString().split(".");
+      num_parts[0] = num_parts[0].replace(/\B(?=(\d{3})+(?!\d))/g, ",");
+      return num_parts.join(".");
+    }
   console.log(item)
   return (
     <div className='item--main'>
-        <ElementBlock element={item}/>
-        <h3>{item.element}</h3>
-        <form action="">
-              <label htmlFor="Qty">Qty:</label>
-              <select name="Qty" id="qty" value={item.qtyData} onChange={changeQty}>
-                {numbers.map(num => (
-                  <option value={num} key={num}>{num}</option>
-                ))}
-              </select>
-        </form>
-        <p>${Number(item.unitCost)}</p>
-        <h4>${Math.round(Number(item.unitCost) * Number(item.qtyData) * 100)/100}</h4>
+        <Link><ElementBlockSmall element={item}/></Link>
+        <div className='item--mid'>
+          <h3>{item.element}</h3>
+          <form action="">
+                <label htmlFor="Qty">Qty:</label>
+                <select name="Qty" id="qty" value={item.qtyData} onChange={changeQty}>
+                  {numbers.map(num => (
+                    <option value={num} key={num}>{num}</option>
+                  ))}
+                </select>
+          </form>
+          <p>(${numComma(Number(item.unitCost))} each)</p>
+        </div>     
+        <h4>${numComma(Math.round(Number(item.unitCost) * Number(item.qtyData) * 100)/100)}</h4>
     </div>
   )
 }
