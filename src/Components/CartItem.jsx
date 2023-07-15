@@ -21,7 +21,7 @@ function CartItem({item}) {
   console.log(item)
   return (
     <div className='item--main'>
-        <Link><ElementBlockSmall element={item}/></Link>
+        <Link to={`/products/${(item.element).toLowerCase()}`}><ElementBlockSmall element={item}/></Link>
         <div className='item--mid'>
           <h3>{item.element}</h3>
           <form action="">
