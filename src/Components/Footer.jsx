@@ -20,7 +20,28 @@ function Footer() {
         </div>
       </div>
       <div className="foot--mid">
-        <p>middle</p>
+        <div>
+          <h4>Get Help</h4>
+          <p>Frequenty Asked Questions</p>
+          <p>Order Status</p>
+          <p>Recall Notice</p>
+          <p>Returns</p>
+        </div>
+        <div>
+          <h4>Legal and Privacy</h4>
+          <p>Privacy Rights</p>
+          <p>Transparancy Act</p>
+          <p>Conditions of Use</p>
+          <p>Privacy Policy</p>
+          <p>Terms & Conditions</p>
+        </div>
+        <div>
+          <h4>About Us</h4>
+          <p>Accessibility</p>
+          <p>Affiliates</p>
+          <p>Careers</p>
+          <p>Investors</p>
+        </div>
       </div>
       <div className="foot--bottom">
         <p>Proteus Labs, LLC All Rights Reserved</p>
