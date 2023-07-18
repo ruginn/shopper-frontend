@@ -34,7 +34,8 @@
     border: 1px solid rgba(141, 141, 141, 0.316);
     height: 50px;
     border-radius: 20px;
-    background-color: #cfcee1;
+    /* background-color: #cfcee1; */
+    background-color: #727190;
     color: white;
     font-size: 15px;
 }

@@ -5,12 +5,16 @@
 
 .lh--left{
     width: 50%;
-    background-color: #727190;
+    /* background-color: #727190; */
+    background-color: #afaec1;
 }
+
+
 
 .lh--right{
     width: 50%;
-    background-color: #727190;
+    /* background-color: #727190; */
+    background-color: #afaec1;
 }
 
 .lh--right > img{

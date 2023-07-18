@@ -18,7 +18,6 @@ function CartItem({item}) {
       num_parts[0] = num_parts[0].replace(/\B(?=(\d{3})+(?!\d))/g, ",");
       return num_parts.join(".");
     }
-  console.log(item)
   return (
     <div className='item--main'>
         <Link to={`/products/${(item.element).toLowerCase()}`}><ElementBlockSmall element={item}/></Link>
