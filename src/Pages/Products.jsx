@@ -4,6 +4,7 @@ import data from '../periodTable.json'
 import {Link} from 'react-router-dom'
 import ElementBlock from '../Components/ElementBlock'
 import '../styles/Products.css'
+import ProductCard from '../Components/ProductCard'
 
 export default function Products() {
   // const filterElements = data.elements.filter((element) => element.name.toLowerCase().includes('hydro'))
@@ -15,10 +16,11 @@ export default function Products() {
   
   return (
     <div className='product--container'>
+        {/* <ProductCard element={elements[0]}/> */}
         {elements.map((element) => (
         <div key={element.name}>
             <Link to={`/products/${element.name.toLowerCase()}`}>
-            <ElementBlock element={element}/>
+            <ProductCard element={element}/>
             </Link>
         </div>
       ))}

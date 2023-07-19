@@ -11,7 +11,7 @@ function Cart() {
     if (cartItem){
       for (let i = 0; i <= cartItem.length -1; i++){
         console.log(cartItem[i].element)
-        let itemCost = cartItem[i].qtyData * cartItem[i].unitCost
+        let itemCost = Number(cartItem[i].qtyData) * Number(cartItem[i].unitCost)
         console.log(itemCost)
         setTotalCost(prev => prev + itemCost)
       }
@@ -24,6 +24,9 @@ function Cart() {
     num_parts[0] = num_parts[0].replace(/\B(?=(\d{3})+(?!\d))/g, ",");
     return num_parts.join(".");
   }
+
+  let subTotal = (Math.round(totalCost *100)/100)
+  let estimatedTax = (Math.round(totalCost * 0.065 *100)/100)
 
   return (
     <div className='cart--main'>
@@ -38,11 +41,11 @@ function Cart() {
           <div className="order--summary">
             <h3>Order Summary</h3>
             <p>Subtotal (1 item)</p>
-            <h4>${numComma(Math.round(totalCost *100)/100)}</h4>
+            <h4>${numComma(subTotal)}</h4>
             <p>Estimated Tax</p>
-            <p>${numComma(Math.round(totalCost * 0.065 *100)/100)}</p>
+            <p>${numComma(estimatedTax)}</p>
             <h5>Estimated Total</h5>
-            <h2>${Math.round(numComma((Math.round(totalCost * 100)/ 100) + Math.round(totalCost * 0.06 *100)/100)*100)/100}</h2>
+            <h2>${numComma(subTotal + estimatedTax)}</h2>
             <button>PROCEED TO CHECKOUT</button>
           </div>
         </div>}

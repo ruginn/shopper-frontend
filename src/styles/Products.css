@@ -1,5 +1,10 @@
 .product--container{
     display: grid;
-    grid-template-columns: 1fr 1fr 1fr 1fr;
+    /* grid-template-columns: 1fr 1fr 1fr 1fr; */
     grid-gap: 1rem;
+}
+
+.product--container > div > a{
+    text-decoration: none;
+    color: black;
 }
