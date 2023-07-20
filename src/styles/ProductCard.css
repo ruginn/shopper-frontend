@@ -1,12 +1,28 @@
 .product--card--container{
-    border-top: 1px solid gray;
+    border-bottom: 1px solid gray;
     width: 600px;
     padding: 30px;
     display: flex;
     flex-direction: row;
 }
-
+.product--card--container >a{
+    text-decoration: none;
+    color: black;
+    display: flex;
+}
 .product--card--mid{
-    width: 400px;
+    width: 350px;
     margin-left: 30px;
+}
+
+.product--card--end > button{
+    width: 120px;
+    /* margin: 10px; */
+    outline: none;
+    padding: 8px 10px;
+    font-family: sans-serif;
+    border: none;
+    background-color: #c1c0d8;
+    cursor: pointer;
+    border-radius: 5px;
 }

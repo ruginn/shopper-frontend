@@ -21,14 +21,16 @@ function App() {
       <div className='page--content'>
       <ScrollToTop />
       <NavBar />
-      <Routes>
-        <Route path='/' element={<Home/>}/>
-        <Route path='/login' element={<LoginPage/>}/>
-        <Route path='/cart' element={<Cart/>}/>
-        <Route path='/register' element={<Register/>}/>
-        <Route path='/products' element={<Products/>}/>
-        <Route path='/products/:productId' element={<ProductPage/>}/>
-      </Routes>
+      <div className='after--nav'>
+        <Routes>
+          <Route path='/' element={<Home/>}/>
+          <Route path='/login' element={<LoginPage/>}/>
+          <Route path='/cart' element={<Cart/>}/>
+          <Route path='/register' element={<Register/>}/>
+          <Route path='/products' element={<Products/>}/>
+          <Route path='/products/:productId' element={<ProductPage/>}/>
+        </Routes>
+      </div>
       </div>
       <Footer />
 

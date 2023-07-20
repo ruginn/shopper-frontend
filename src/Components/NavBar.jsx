@@ -61,7 +61,7 @@ function NavBar() {
   },[searchVal])
 
   return (
-    <div className='nav--bar'>
+    <div className='nav--bar sticky'>
         <div className='left--nav'>
             <BsHexagon /> 
             <Link to={`/`}><h1>proteus</h1></Link>

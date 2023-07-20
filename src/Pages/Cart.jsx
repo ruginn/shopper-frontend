@@ -10,9 +10,9 @@ function Cart() {
   useEffect(() => {
     if (cartItem){
       for (let i = 0; i <= cartItem.length -1; i++){
-        console.log(cartItem[i].element)
+
         let itemCost = Number(cartItem[i].qtyData) * Number(cartItem[i].unitCost)
-        console.log(itemCost)
+
         setTotalCost(prev => prev + itemCost)
       }
     }
@@ -45,7 +45,7 @@ function Cart() {
             <p>Estimated Tax</p>
             <p>${numComma(estimatedTax)}</p>
             <h5>Estimated Total</h5>
-            <h2>${numComma(subTotal + estimatedTax)}</h2>
+            <h2>${numComma(Math.round((subTotal + estimatedTax)*100)/100)}</h2>
             <button>PROCEED TO CHECKOUT</button>
           </div>
         </div>}

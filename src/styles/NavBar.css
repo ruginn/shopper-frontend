@@ -13,6 +13,11 @@ accent #b1b1ce */
     display: flex;
     justify-content: space-between;
     align-items: center;
+    position: sticky;
+}
+
+.sticky{
+    position: fixed;
 }
 
 
