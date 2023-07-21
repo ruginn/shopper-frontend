@@ -23,12 +23,12 @@ export const generalSlice = createSlice({
             let filterElements = []
             if (info.payload.searchPara !== ''){
                 filterElements = data.elements.filter((element) => (
-                    element.name.toLowerCase().includes(`${info.payload.searchPara}`)
-                    || element.symbol.toLowerCase().includes(`${info.payload.searchPara}`)
-                    || element.number.toString().includes(`${info.payload.searchPara}`)
-                    || element.atomic_mass.toString().includes(`${info.payload.searchPara}`)
-                    || element.category.toLowerCase().includes(`${info.payload.searchPara}`)
-                    || element.phase.toLowerCase().includes(`${info.payload.searchPara}`)
+                    element.name.toLowerCase().includes(`${info.payload.searchPara.toLowerCase()}`)
+                    || element.symbol.toLowerCase().includes(`${info.payload.searchPara.toLowerCase()}`)
+                    || element.number.toString().includes(`${info.payload.searchPara.toLowerCase()}`)
+                    || element.atomic_mass.toString().includes(`${info.payload.searchPara.toLowerCase()}`)
+                    || element.category.toLowerCase().includes(`${info.payload.searchPara.toLowerCase()}`)
+                    || element.phase.toLowerCase().includes(`${info.payload.searchPara.toLowerCase()}`)
                     ))
                 state.chemicals = filterElements
             } else {

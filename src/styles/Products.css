@@ -18,3 +18,22 @@
     margin-left: 20px;
     /* position: sticky; */
 }
+
+.product--filter > div> h4{
+    margin: 5px;
+}
+
+.filter--button{
+    display: flex;
+    flex-direction: column;
+    width: 200px;
+}
+
+.filter--button > button{
+    margin: 2px;
+    text-align: start;
+    outline: none;
+    background: transparent;
+    border: none;
+    cursor: pointer;
+}

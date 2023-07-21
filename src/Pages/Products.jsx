@@ -1,17 +1,34 @@
-import React, {useEffect} from 'react'
-import { UseSelector, useSelector } from 'react-redux/es/hooks/useSelector'
+import React, {useEffect, useState} from 'react'
+import { useDispatch, useSelector } from 'react-redux'
 import data from '../periodTable.json'
 import {Link} from 'react-router-dom'
-import ElementBlock from '../Components/ElementBlock'
 import '../styles/Products.css'
 import ProductCard from '../Components/ProductCard'
+import { searchParas } from '../features/general'
 
 export default function Products() {
   // const filterElements = data.elements.filter((element) => element.name.toLowerCase().includes('hydro'))
   // console.log(filterElements)
+  const dispatch = useDispatch()
   const searcher = useSelector((state) => state.general.search)
   const elements = useSelector((state) => state.general.chemicals)
   
+  const [searchVal, setSearchVal] = useState({
+    searchPara: ''
+  })
+  const {searchPara} = searchVal
+
+  const filter = (e) => {
+    setSearchVal((prev) => (
+      {
+        ...prev,
+        searchPara: e.target.outerText
+      }
+    ))
+    dispatch(searchParas(searchVal))
+  }
+
+
 
   
   return (
@@ -19,23 +36,25 @@ export default function Products() {
         <div className='product--filter'>
           <div>
             <h2>Filter</h2>
-            <h4>Product A-Z</h4>
-            <h4>Product Z-A</h4>
             <h4>Category</h4>
-            <p>-Diatomic Nonmetal</p>
-            <p>-Noble Gas</p>
-            <p>-Alkali Metal</p>
-            <p>-Alkaline Earth Metal</p>
-            <p>-Metalloid</p>
-            <p>-Polyatomic Nonmetal</p>
-            <p>-Post-Transitional Metal</p>
-            <p>-Lanthanide</p>
-            <p>-Actinide</p>
-            <p>-Unknown</p>
+            <div className='filter--button'>
+              <button onClick={filter}>Diatomic Nonmetal</button>
+              <button onClick={filter}>Noble Gas</button>
+              <button onClick={filter}>Alkali Metal</button>
+              <button onClick={filter}>Alkaline Earth Metal</button>
+              <button onClick={filter}>Metalloid</button>
+              <button onClick={filter}>Polyatomic Nonmetal</button>
+              <button onClick={filter}>Post-Transition Metal</button>
+              <button onClick={filter}>Lanthanide</button>
+              <button onClick={filter}>Actinide</button>
+              <button onClick={filter}>Unknown</button>
+            </div>
             <h4>Phase (at room temp)</h4>
-            <p>-Solid</p>
-            <p>-Liquid</p>
-            <p>-Gas</p>
+            <div className='filter--button'>
+              <button onClick={filter}>Solid</button>
+              <button onClick={filter}>Liquid</button>
+              <button onClick={filter}>Gas</button>
+            </div>
           </div>
         </div>
         <div className='product--right'>
