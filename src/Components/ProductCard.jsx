@@ -27,6 +27,13 @@ function ProductCard({element}) {
       }
       dispatch(addItem(sendData))
     }
+
+    const numComma = (num) =>{
+      let num_parts = num.toString().split(".");
+      num_parts[0] = num_parts[0].replace(/\B(?=(\d{3})+(?!\d))/g, ",");
+      return num_parts.join(".");
+    }
+
     return (
     <div className='product--card--container'>
         <Link to={`/products/${element.name.toLowerCase()}`}> 
@@ -38,7 +45,7 @@ function ProductCard({element}) {
         </div>
         </Link>
         <div className="product--card--end">
-            <h4>${cost}</h4>
+            <h4>${numComma(cost)}</h4>
             <button onClick={addToCart}>Add to Cart</button>
         </div>
     </div>

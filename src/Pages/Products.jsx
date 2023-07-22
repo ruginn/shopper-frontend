@@ -4,7 +4,8 @@ import data from '../periodTable.json'
 import {Link} from 'react-router-dom'
 import '../styles/Products.css'
 import ProductCard from '../Components/ProductCard'
-import { searchParas } from '../features/general'
+import { searchParas, alphabetize, reverseAlphabetize, resetChemicals } from '../features/general'
+
 
 export default function Products() {
   // const filterElements = data.elements.filter((element) => element.name.toLowerCase().includes('hydro'))
@@ -13,29 +14,35 @@ export default function Products() {
   const searcher = useSelector((state) => state.general.search)
   const elements = useSelector((state) => state.general.chemicals)
   
-  const [searchVal, setSearchVal] = useState({
-    searchPara: ''
-  })
-  const {searchPara} = searchVal
 
   const filter = (e) => {
-    setSearchVal((prev) => (
-      {
-        ...prev,
-        searchPara: e.target.outerText
-      }
-    ))
+    let searchVal = {
+      searchPara: e.target.outerText
+    }
     dispatch(searchParas(searchVal))
   }
 
+  const alphabetizer = () => {
+    dispatch(alphabetize())
+  }
+  const reverseAlphabetizer = ()=> {
+    dispatch(reverseAlphabetize())
+  }
 
-
+  const resetChemical = () => {
+    dispatch(resetChemicals())
+  }
   
   return (
     <div className='product--container'>
         <div className='product--filter'>
           <div>
             <h2>Filter</h2>
+            <h4>Alphabetize</h4>
+            <div className='filter--button'>
+              <button onClick={alphabetizer}>A-Z</button>
+              <button onClick={reverseAlphabetizer}>Z-A</button>
+            </div>
             <h4>Category</h4>
             <div className='filter--button'>
               <button onClick={filter}>Diatomic Nonmetal</button>
@@ -55,6 +62,7 @@ export default function Products() {
               <button onClick={filter}>Liquid</button>
               <button onClick={filter}>Gas</button>
             </div>
+            <h4 onClick={resetChemical}>Reset</h4>
           </div>
         </div>
         <div className='product--right'>

@@ -34,14 +34,25 @@ export const generalSlice = createSlice({
             } else {
                 state.chemicals = initialState.chemicals
             }
-            // state.chemicals = filterElements
+            console.log(info.payload.searchPara)
+        },
+        alphabetize: (state) => {
+            // let alpha = data.elements.sort((a, b) => a.name.toLowerCase().localeCompare(b.name.toLowerCase()))
+            state.chemicals.sort((a, b) => a.name.toLowerCase().localeCompare(b.name.toLowerCase()))
+        },
+        reverseAlphabetize: (state) => {
+            // let alpha = data.elements.sort((a, b) => a.name.toLowerCase().localeCompare(b.name.toLowerCase()))
+            state.chemicals.sort((a, b) => b.name.toLowerCase().localeCompare(a.name.toLowerCase()))
+        },
+        resetChemicals: (state) => {
+            state.chemicals = initialState.chemicals
         }
 
 
     }
 })
 
-export const {changeMode, searchParas} = generalSlice.actions
+export const {changeMode, searchParas, alphabetize, reverseAlphabetize, resetChemicals} = generalSlice.actions
 export default generalSlice.reducer;
 
 

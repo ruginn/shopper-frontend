@@ -18,14 +18,25 @@
     background-color: rgba(96, 96, 96, 0.226);
 }
 
-.hero--content> h1{
+.hero--right{
+    width: 70vw;
+}
+.hero--right> h1{
     font-size: 100px;
     margin: 0px;
     margin-left: 50px;
-    margin-bottom: 150px;
+    /* margin-bottom: 150px; */
     color: white;
     /* font-family: 'Raleway', sans-serif; */
     user-select: none;
+    margin-right: 30px;
+}
+
+.hero--right >p{
+    margin-left: 50px;
+    color: white;
+    font-size: 20px;
+    font-style: italic;
 }
 .hero--content> a >button{
     cursor: pointer;
