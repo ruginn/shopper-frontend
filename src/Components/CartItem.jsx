@@ -1,8 +1,8 @@
-import React, {useState, useEffect} from 'react'
+import React, {useState, useEffect, useRef} from 'react'
 import {Link} from 'react-router-dom'
 import '../styles/CartItem.css'
 import ElementBlockSmall from './ElementBlockSmall'
-import { removeItem, changeQty } from '../features/cart/cartSlice'
+import { removeItem, changeQty, addItem } from '../features/cart/cartSlice'
 import { useDispatch } from 'react-redux'
 
 function CartItem({item}) {
@@ -12,8 +12,8 @@ function CartItem({item}) {
     
     const changeData = (e) => {
     setQtyData(e.target.value)
-    console.log(qtyData)
     }
+    const refOption = useRef()    
 
     const numComma = (num) =>{
       let num_parts = num.toString().split(".");
@@ -28,8 +28,8 @@ function CartItem({item}) {
     const onChangeQty = (e) => {
       changeData(e)
       const dataChange = {
-        element: item.element, 
-        qtyData: Number(qtyData)
+        element: item.element,
+        qtyData: Number(refOption.current.value)
       }
       dispatch(changeQty(dataChange))
     }
@@ -41,9 +41,9 @@ function CartItem({item}) {
           <h3>{item.element}</h3>
           <form action="">
                 <label htmlFor="Qty">Qty:</label>
-                <select name="Qty" id="qty" value={qtyData} onChange={onChangeQty}>
+                <select name="Qty" id="qty" value={qtyData} ref={refOption} onChange={onChangeQty}>
                   {numbers.map(num => (
-                    <option value={num} key={num}>{num}</option>
+                    <option value={num} key={num}>{num} </option>
                   ))}
                 </select>
           </form>

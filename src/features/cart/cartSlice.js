@@ -21,7 +21,7 @@ export const cartSlice = createSlice({
     initialState, 
     reducers: {
         addItem: (state, info) => {
-            let pastItems
+            let pastItems, sameElement
             if (localStorage.getItem('cart')){
                 pastItems = (JSON.parse(localStorage.getItem('cart')))
                 const checkItems = pastItems.map((item) =>{
@@ -36,22 +36,10 @@ export const cartSlice = createSlice({
                         return item
                     }
                 })
-                const sameElement = pastItems.filter(element => element.element === info.payload.element)
+                sameElement = pastItems.filter(element => element.element === info.payload.element)
                 if(sameElement.length === 0){
                     checkItems.push(info.payload)
                 }
-                // } else{
-                //     state.total += Number(sameElement[0].qtyData) * Number(sameElement[0].unitCost)
-                // }
-                // if (checkItems){
-                //     for (let i = 0; i <= checkItems.length -1; i++){
-              
-                //       let itemCost = Number(checkItems[i].qtyData) * Number(checkItems[i].unitCost)
-                //       state.total += itemCost
-                //     }
-                //   }
-                // state.total += sameElement
-                //   console.log(state.total)
                 state.elementsInCart = checkItems
                 localStorage.setItem('cart', JSON.stringify(checkItems))
             }else {
@@ -59,8 +47,12 @@ export const cartSlice = createSlice({
                 state.elementsInCart = [info.payload]
                 localStorage.setItem('cart', JSON.stringify([info.payload]))
             }
-            console.log(info.payload.qtyData)
-            state.total += Number(info.payload.qtyData) * Number(info.payload.unitCost)
+            if (sameElement && sameElement[0]?.maxQty){
+
+            } else{
+                state.total += Number(info.payload.qtyData) * Number(info.payload.unitCost)
+            }
+            // state.total += Number(info.payload.qtyData) * Number(info.payload.unitCost)
             const cartItem = JSON.parse(localStorage.getItem('cart'))
             let totalItems = 0
             for (let i = 0; i < cartItem.length; i++){
@@ -102,7 +94,24 @@ export const cartSlice = createSlice({
             state.elementsInCart = otherElements
         },
         changeQty: (state, info) => {
-            console.log(info.payload)
+            let pastItems = (JSON.parse(localStorage.getItem('cart')))
+            const newList = pastItems.map((element) => {
+                if (element.element == info.payload.element){
+                    state.total -= (element.qtyData * element.unitCost)
+                    state.cartItems -= element.qtyData
+                    element.qtyData = info.payload.qtyData 
+                    state.cartItems += info.payload.qtyData
+                    state.total += (element.qtyData * element.unitCost)
+                    if (element.qtyData >= 9){
+                        element.maxQty = true
+                    } else {
+                        element.maxQty = false 
+                    }
+                }
+                return element
+            })
+            localStorage.setItem('cart', JSON.stringify(newList))
+            state.elementsInCart = newList
         }
     }
 })

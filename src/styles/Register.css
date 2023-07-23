@@ -35,5 +35,15 @@
     width: 50%;
     color: white;
     padding-left: 45px;
-    background-color: rgb(125, 123, 135);
+    /* background-color: rgb(125, 123, 135); */
+    background-image: url(../assets/lab2.jpeg);
+    background-size: cover;
+}
+
+.register--right > div{
+    width: sum(100% + 45px);
+    height: 100%;
+    background-color: rgba(100, 90, 123, 0.621);  
+    margin-left: -45px;
+    padding: 45px;
 }

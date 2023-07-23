@@ -1,11 +1,17 @@
 .product--container{
     display: flex;
     flex-direction: row;
+    width: 100vw;
+    /* align-items: center; */
+    justify-content: center;
 }
 
 .product--right{
     display: flex;
     flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin-left: 150px;
 }
 
 .product--right >div> a{
@@ -15,8 +21,10 @@
 
 .product--filter{
     width: 25%;
-    margin-left: 20px;
-    /* position: sticky; */
+    margin-left: 30px;
+    left: 0;
+    position: fixed;
+    justify-self: flex-start;
 }
 
 .product--filter > div> h4{

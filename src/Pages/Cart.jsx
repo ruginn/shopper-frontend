@@ -9,23 +9,12 @@ function Cart() {
   const dispatch = useDispatch()
   const cartItem = JSON.parse(localStorage.getItem('cart'))
   const items = useSelector((state) => state.cart.elementsInCart)
+  const total = useSelector((state) => state.cart.total)
   useEffect(() => {
     dispatch(getItems())
   },[])
   
-  const [totalCost, setTotalCost] = useState(0)
-  let tax 
-  useEffect(() => {
-    if (items){
-      for (let i = 0; i <= items.length -1; i++){
-
-        let itemCost = Number(items[i].qtyData) * Number(items[i].unitCost)
-
-        setTotalCost(prev => prev + itemCost)
-      }
-    }
-    tax = Math.round(totalCost * 0.06 *100)/100
-  },[items])
+  
 
   const numComma = (num) =>{
     let num_parts = num.toString().split(".");
@@ -33,8 +22,8 @@ function Cart() {
     return num_parts.join(".");
   }
 
-  let subTotal = (Math.round(totalCost *100)/100)
-  let estimatedTax = (Math.round(totalCost * 0.065 *100)/100)
+  let subTotal = (Math.round(total *100)/100)
+  let estimatedTax = (Math.round(total * 0.065 *100)/100)
   let estimatedTotal = (Math.round((subTotal + estimatedTax)*100)/100)
 
   return (
@@ -50,7 +39,7 @@ function Cart() {
           <div className="order--summary">
             <h3>Order Summary</h3>
             <p>Subtotal (1 item)</p>
-            <h4>${numComma(subTotal)}</h4>
+            <h4>${numComma(Math.round(total * 100)/100)}</h4>
             <p>Estimated Tax</p>
             <p>${numComma(estimatedTax)}</p>
             <h5>Estimated Total</h5>
