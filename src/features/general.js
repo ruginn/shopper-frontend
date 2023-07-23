@@ -34,7 +34,6 @@ export const generalSlice = createSlice({
             } else {
                 state.chemicals = initialState.chemicals
             }
-            console.log(info.payload.searchPara)
         },
         alphabetize: (state) => {
             // let alpha = data.elements.sort((a, b) => a.name.toLowerCase().localeCompare(b.name.toLowerCase()))

@@ -9,7 +9,6 @@ if (itemsInCart){
       sum += itemCost
     }
   }
-  console.log(sum)
 const initialState = {
     cartItems: 0, 
     elementsInCart: itemsInCart,
