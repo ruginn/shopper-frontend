@@ -22,6 +22,7 @@ function ProductCard({element}) {
         symbol: element.symbol, 
         number: element.number,
         qtyData: 1, 
+        maxQty: false, 
         unitCost: cost,
   
       }

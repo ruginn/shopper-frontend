@@ -36,6 +36,7 @@ function ProductPage() {
       atomic_mass: currElement[0].atomic_mass,
       symbol: currElement[0].symbol, 
       number: currElement[0].number,
+      maxQty: false,
       qtyData, 
       unitCost: cost,
 

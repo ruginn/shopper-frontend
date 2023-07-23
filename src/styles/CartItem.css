@@ -20,3 +20,8 @@
 .item--mid > p{
     font-size: 12px;
 }
+
+.cart--item--right > p:hover{
+    text-decoration: underline;
+    cursor: pointer;
+}
