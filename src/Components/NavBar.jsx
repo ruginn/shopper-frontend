@@ -76,8 +76,8 @@ function NavBar() {
             {!user ?<Link to={'/login'}>Sign in</Link>: <p onClick={signOut}>Logout</p>}
             <Link to={'/register'}>Register</Link>
             <Link to={'/cart'}><BsCart/>{cartItems}</Link>
-            {mode === 'light'?<BiSun onClick={activateMode}/>:
-            <BiMoon onClick={activateMode}/>}
+            {/* {mode === 'light'?<BiSun onClick={activateMode}/>: */}
+            {/* <BiMoon onClick={activateMode}/>} */}
         </div>
     </div>
   )

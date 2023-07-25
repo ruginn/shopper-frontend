@@ -46,7 +46,11 @@
     cursor: pointer;
     font-size: 15px;
 }
+.filter--reset:hover {
+    text-decoration: underline;
+    cursor: pointer;
+}
 
-.filter--button > button:hover{
+.filter--button > button:hover {
     text-decoration: underline;
 }

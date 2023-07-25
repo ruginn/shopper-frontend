@@ -62,7 +62,7 @@ export default function Products() {
               <button onClick={filter}>Liquid</button>
               <button onClick={filter}>Gas</button>
             </div>
-            <h4 onClick={resetChemical}>Reset</h4>
+            <h4 onClick={resetChemical} className='filter--reset'>Reset</h4>
           </div>
         </div>
         <div className='product--right'>
