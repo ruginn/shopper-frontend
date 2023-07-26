@@ -1,4 +1,5 @@
-import {createSlice} from '@reduxjs/toolkit'
+import {createSlice, createAsyncThunk} from '@reduxjs/toolkit'
+import cartService from './cartService'
 
 const itemsInCart = (JSON.parse(localStorage.getItem('cart')))
 let sum = 0
@@ -14,6 +15,18 @@ const initialState = {
     elementsInCart: itemsInCart,
     total: sum,
 }
+
+
+// create checkout session
+export const checkoutSession = createAsyncThunk('cart/checkout', async(items, thunkAPI) => {
+    try{
+        console.log(items)
+        return await cartService.checkout(items)
+    } catch (error) {
+        const message = error?.response?.data?.toString()
+        return thunkAPI.rejectWithValue(message)
+    }
+} )
 
 export const cartSlice = createSlice({
     name: 'cart', 

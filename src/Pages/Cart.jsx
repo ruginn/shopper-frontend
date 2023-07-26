@@ -3,6 +3,7 @@ import '../styles/Cart.css'
 import CartItem from '../Components/CartItem'
 import { useSelector, useDispatch } from 'react-redux'
 import { getItems } from '../features/cart/cartSlice'
+import { checkoutSession } from '../features/cart/cartSlice'
 
 
 function Cart() {
@@ -25,6 +26,15 @@ function Cart() {
   let subTotal = (Math.round(total *100)/100)
   let estimatedTax = (Math.round(total * 0.065 *100)/100)
   let estimatedTotal = (Math.round((subTotal + estimatedTax)*100)/100)
+  
+  const clickCheckout = () =>{
+    const totalData = {
+      subTotal, 
+      estimatedTax, 
+      estimatedTotal
+    }
+    dispatch(checkoutSession(totalData))
+  }
 
   return (
     <div className='cart--main'>
@@ -44,7 +54,7 @@ function Cart() {
             <p>${numComma(estimatedTax)}</p>
             <h5>Estimated Total</h5>
             <h2>${numComma(estimatedTotal)}</h2>
-            <button>PROCEED TO CHECKOUT</button>
+            <button onClick={clickCheckout}>PROCEED TO CHECKOUT</button>
           </div>
         </div>}
         {items.length == 0 && <div>
