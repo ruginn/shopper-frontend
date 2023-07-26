@@ -1,8 +1,10 @@
-import { useDisclosure } from '@mantine/hooks';
-import { Modal, Button, Group } from '@mantine/core';
+
+import { Modal } from '@mantine/core';
+import '../styles/QuoteModal.css'
 
 export default function QuoteModal({quoteModal, setQuoteModal}) {
-//   const [opened, { open, close }] = useDisclosure(false);
+
+
 
   return (
     <>
@@ -13,13 +15,13 @@ export default function QuoteModal({quoteModal, setQuoteModal}) {
         onClose={()=>setQuoteModal(false)}
                         
       >
-        <form action="">
-            <label htmlFor="name">name</label>
-            <input type="text" />
-            <label htmlFor="Amount">amount</label>
-            <input type="text" />
-            <label htmlFor="">Message</label>
-            <input type="text" />
+        <form action="" className='quote--modal'>
+            <label htmlFor="name">Name</label>
+            <input type="text" id='name'/>
+            <label htmlFor="amount">Quantity</label>
+            <input type="text" id='amount'/>
+            <label htmlFor="message">Message</label>
+            <input type="text" id='message'/>
             <button type='submit'>Request quote</button>
         </form>
       </Modal>
