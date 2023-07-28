@@ -4,6 +4,8 @@ import {Link} from 'react-router-dom'
 import { register, reset } from '../features/auth/authSlice'
 import '../styles/Register.css'
 import lab from '../assets/lab2.jpeg'
+import { getCartItems, updateCartItems } from '../features/cart/cartSlice'
+
 
 function Register() {
     const dispatch = useDispatch()
@@ -30,7 +32,17 @@ function Register() {
         console.log(registerData)
         dispatch(register(registerData))
     }
-  
+    
+    const clicker = () => {
+        dispatch(getCartItems())
+    }
+    
+    const update = () => {
+        dispatch(updateCartItems())
+    }
+
+
+
   
     return (
     <div className='register--main'>
@@ -51,8 +63,11 @@ function Register() {
             </form>
             <p>By clicking 'Create Account', I acknowledge and agree to Proteus' Privacy Policy, Condition of Use, and the Proteus Terms and Conditions</p>
             <button onClick={onSubmit}>Create Account</button>
+
             <p>or</p>
             <Link to='/login'><button>Sign in</button></Link>
+            <button onClick={clicker}>clickme</button>
+            <button onClick={update}>update</button>
         </div>
         <div className="register--right">
             <div>

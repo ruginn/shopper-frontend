@@ -17,6 +17,27 @@ const initialState = {
 }
 
 
+//  get cart items if logged in 
+export const getCartItems = createAsyncThunk('cart/getItems', async(_, thunkAPI) => {
+    try {
+        const token = thunkAPI.getState().auth.user.token
+        return await cartService.getCart(token)
+    } catch (error) {
+        
+    }
+})
+
+// update cart items if logged in 
+export const updateCartItems = createAsyncThunk('cart/update', async(cartInfo, thunkAPI) => {
+    try {
+        const cartInfo = (JSON.parse(localStorage.getItem('cart')))
+        const token = thunkAPI.getState().auth.user.token
+        return await cartService.updateCart(cartInfo, token)
+    } catch (error) {
+
+    }
+})
+
 // create checkout session
 export const checkoutSession = createAsyncThunk('cart/checkout', async(items, thunkAPI) => {
     try{
@@ -27,6 +48,8 @@ export const checkoutSession = createAsyncThunk('cart/checkout', async(items, th
         return thunkAPI.rejectWithValue(message)
     }
 } )
+
+
 
 export const cartSlice = createSlice({
     name: 'cart', 

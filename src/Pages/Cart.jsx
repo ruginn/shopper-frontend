@@ -45,7 +45,7 @@ function Cart() {
         )
         ):<></>}
         </div>}
-        {items.length >= 1 && <div className="cart--right">
+        {items?.length >= 1 && <div className="cart--right">
           <div className="order--summary">
             <h3>Order Summary</h3>
             <p>Subtotal (1 item)</p>
@@ -57,7 +57,7 @@ function Cart() {
             <button onClick={clickCheckout}>PROCEED TO CHECKOUT</button>
           </div>
         </div>}
-        {items.length == 0 && <div>
+        {items?.length == 0 && <div>
           <h1>There are no items in your cart</h1>
         </div>}
     </div>

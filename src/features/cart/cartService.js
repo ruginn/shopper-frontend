@@ -11,8 +11,36 @@ const checkout = async ()=>{
     return response.data
 }
 
+
+const getCart = async (token) => {
+    const config = {
+        headers: {
+            Authorization: `Bearer ${token}`
+        }
+    }
+    const response = await API.get('api/cart/getcart', config , config)
+    if (response.data){
+        console.log(response.data.cartItems)
+        localStorage.setItem('cart', JSON.stringify(response.data.cartItems))
+        // localStorage.setItem('cart', response.data.cartItems)
+    }
+}
+
+const updateCart = async (cartInfo, token) => {
+    const config = {
+        headers: {
+            Authorization: `Bearer ${token}`
+        }
+    }
+    const response = await API.put('api/cart/updatecart', cartInfo, config)
+    if (response.data){
+        console.log(response.data)
+        
+    }
+}
+
 const cartService = {
-    checkout
+    checkout, getCart, updateCart
 }
 
 export default cartService
