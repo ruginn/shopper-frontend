@@ -5,13 +5,14 @@ import ElementBlock from '../Components/ElementBlock'
 import '../styles/ProductPage.css'
 import SimilarProducts from '../Components/SimilarProducts'
 import PeriodicTable from '../Components/PeriodicTable'
-import { addItem, getItems } from '../features/cart/cartSlice'
+import { addItem, getItems, updateCartItems } from '../features/cart/cartSlice'
 import { useDispatch } from 'react-redux'
 import QuoteModal from '../Components/QuoteModal'
-
+import { useSelector } from 'react-redux'
 
 function ProductPage() {
   const params = useParams()
+  const user = useSelector((state) => state.auth.user)
   const dispatch = useDispatch()
   const [quoteModal, setQuoteModal] = useState(false)
 
@@ -42,6 +43,9 @@ function ProductPage() {
 
     }
     dispatch(addItem(sendData))
+    if (user){
+      dispatch(updateCartItems())
+    }
   }
 
   const clickQuote = () => {

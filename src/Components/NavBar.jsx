@@ -7,7 +7,7 @@ import { logout } from '../features/auth/authSlice'
 import { useSelector } from 'react-redux/es/hooks/useSelector'
 import { useDispatch } from 'react-redux'
 import { changeMode } from '../features/general'
-import { getItems } from '../features/cart/cartSlice'
+import { getItems, logoutCart } from '../features/cart/cartSlice'
 import { searchParas } from '../features/general'
 
 
@@ -19,6 +19,7 @@ function NavBar() {
   const mode = useSelector((state) => state.general.mode)
   const signOut = () => {
     dispatch(logout())
+    dispatch(logoutCart())
   }
   const activateMode = () => {
     dispatch(changeMode())
@@ -73,8 +74,8 @@ function NavBar() {
           </form>
         </div>
         <div className='right--nav'>
+            {!user? <Link to={'/register'}>Register</Link>: <></>}
             {!user ?<Link to={'/login'}>Sign in</Link>: <p onClick={signOut}>Logout</p>}
-            <Link to={'/register'}>Register</Link>
             <Link to={'/cart'}><BsCart/>{cartItems}</Link>
             {/* {mode === 'light'?<BiSun onClick={activateMode}/>: */}
             {/* <BiMoon onClick={activateMode}/>} */}

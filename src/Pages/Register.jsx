@@ -4,7 +4,7 @@ import {Link} from 'react-router-dom'
 import { register, reset } from '../features/auth/authSlice'
 import '../styles/Register.css'
 import lab from '../assets/lab2.jpeg'
-import { getCartItems, updateCartItems } from '../features/cart/cartSlice'
+
 
 
 function Register() {
@@ -33,13 +33,7 @@ function Register() {
         dispatch(register(registerData))
     }
     
-    const clicker = () => {
-        dispatch(getCartItems())
-    }
     
-    const update = () => {
-        dispatch(updateCartItems())
-    }
 
 
 
@@ -66,8 +60,7 @@ function Register() {
 
             <p>or</p>
             <Link to='/login'><button>Sign in</button></Link>
-            <button onClick={clicker}>clickme</button>
-            <button onClick={update}>update</button>
+       
         </div>
         <div className="register--right">
             <div>

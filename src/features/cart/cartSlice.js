@@ -14,6 +14,9 @@ const initialState = {
     cartItems: 0, 
     elementsInCart: itemsInCart,
     total: sum,
+    isLoading: false, 
+    isSuccess: false, 
+    isError: false
 }
 
 
@@ -38,11 +41,16 @@ export const updateCartItems = createAsyncThunk('cart/update', async(cartInfo, t
     }
 })
 
+export const logoutCart = createAsyncThunk('cart/logout', async() => {
+    await cartService.cartLogout()
+})
+
 // create checkout session
 export const checkoutSession = createAsyncThunk('cart/checkout', async(items, thunkAPI) => {
     try{
         console.log(items)
         return await cartService.checkout(items)
+
     } catch (error) {
         const message = error?.response?.data?.toString()
         return thunkAPI.rejectWithValue(message)
@@ -148,6 +156,34 @@ export const cartSlice = createSlice({
             localStorage.setItem('cart', JSON.stringify(newList))
             state.elementsInCart = newList
         }
+    }, 
+    extraReducers: (builder) => {
+        builder 
+            .addCase(getCartItems.pending, (state) => {
+                console.log('loadin')
+                state.isLoading = true
+            })
+            .addCase(getCartItems.fulfilled, (state, action) => {
+                state.isLoading = false
+                console.log(action.payload)
+                let count = 0
+                let total = 0
+                action.payload.map((element) => {
+                    count += element.qtyData 
+                    total += element.unitCost * element.qtyData
+                })
+                state.cartItems = count
+                state.total = total
+                state.elementsInCart = action.payload
+            })
+            .addCase(getCartItems.rejected, (state, action) => {
+                state.isError = true
+            })
+            .addCase(logoutCart.fulfilled, (state, action) => {
+                state.cartItems = 0
+                state.total = 0
+                state.elementsInCart = []
+            })
     }
 })
 

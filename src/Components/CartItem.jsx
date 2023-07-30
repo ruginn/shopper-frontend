@@ -2,11 +2,13 @@ import React, {useState, useEffect, useRef} from 'react'
 import {Link} from 'react-router-dom'
 import '../styles/CartItem.css'
 import ElementBlockSmall from './ElementBlockSmall'
-import { removeItem, changeQty, addItem } from '../features/cart/cartSlice'
-import { useDispatch } from 'react-redux'
+import { removeItem, changeQty, addItem, updateCartItems } from '../features/cart/cartSlice'
+import { useDispatch, useSelector } from 'react-redux'
+
 
 function CartItem({item}) {
     const dispatch = useDispatch()
+    const user = useSelector((state) => state.auth.user)
     const numbers = [1, 2, 3, 4, 5, 6, 7, 8, 9]
     const [qtyData, setQtyData] = useState(item.qtyData)
     
@@ -23,6 +25,9 @@ function CartItem({item}) {
 
     const clickRemove = ()=> {
       dispatch(removeItem(item))
+      if (user) {
+        dispatch(updateCartItems())
+      }
     }
 
     const onChangeQty = (e) => {
@@ -32,6 +37,9 @@ function CartItem({item}) {
         qtyData: Number(refOption.current.value)
       }
       dispatch(changeQty(dataChange))
+      if (user) {
+        dispatch(updateCartItems())
+      }
     }
 
   return (

@@ -3,9 +3,11 @@ import { Link } from 'react-router-dom'
 import '../styles/ProductCard.css'
 import ElementBlock from '../Components/ElementBlock'
 import { useDispatch } from 'react-redux'
-import { addItem } from '../features/cart/cartSlice'
+import { addItem, updateCartItems } from '../features/cart/cartSlice'
+import { useSelector } from 'react-redux'
 
 function ProductCard({element}) {
+  const user = useSelector((state) => state.auth.user)
   const dispatch = useDispatch()
   // Generate arbitary cost of element
     const cost = Math.round(element.atomic_mass) * Math.round(element.number) + 0.99
@@ -27,6 +29,9 @@ function ProductCard({element}) {
   
       }
       dispatch(addItem(sendData))
+      if (user) {
+        dispatch(updateCartItems())
+      }
     }
 
     const numComma = (num) =>{

@@ -4,11 +4,13 @@ import CartItem from '../Components/CartItem'
 import { useSelector, useDispatch } from 'react-redux'
 import { getItems } from '../features/cart/cartSlice'
 import { checkoutSession } from '../features/cart/cartSlice'
+import { Link } from 'react-router-dom'
 
 
 function Cart() {
   const dispatch = useDispatch()
   const cartItem = JSON.parse(localStorage.getItem('cart'))
+  const {cartItems} = useSelector((state) => state.cart)
   const items = useSelector((state) => state.cart.elementsInCart)
   const total = useSelector((state) => state.cart.total)
   useEffect(() => {
@@ -36,6 +38,7 @@ function Cart() {
     dispatch(checkoutSession(totalData))
   }
 
+  console.log(cartItems)
   return (
     <div className='cart--main'>
         {items && <div className='cart--left'>
@@ -57,9 +60,12 @@ function Cart() {
             <button onClick={clickCheckout}>PROCEED TO CHECKOUT</button>
           </div>
         </div>}
-        {items?.length == 0 && <div>
-          <h1>There are no items in your cart</h1>
-        </div>}
+        {/* {items?.length === 0 || cartItems === 0 &&  */}
+        {cartItems === 0 && 
+          <div className='empty--cart'>
+            <h1>Your cart is empty</h1>
+            <Link to='/products'>Take a look at some of our products</Link>
+          </div>}
     </div>
   )
 }
