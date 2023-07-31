@@ -22,10 +22,10 @@ function Footer() {
       <div className="foot--mid">
         <div>
           <h4>Get Help</h4>
-          <p>Frequenty Asked Questions</p>
+          <p><Link to ='/faq'>Frequenty Asked Questions</Link></p>
           <p>Order Status</p>
-          <p>Recall Notice</p>
-          <p>Returns</p>
+          <p><Link to='/recalls'>Recall Notice</Link></p>
+          <p><Link to='/returns'>Returns</Link></p>
         </div>
         <div>
           <h4>Legal and Privacy</h4>

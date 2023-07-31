@@ -83,11 +83,21 @@
 .foot--mid > div> h4{
     margin-bottom: 0px;
 }
+
 .foot--mid >div> p{
     margin: 0px;
     font-size: 14px;
     cursor: pointer;
+    color: white;
+    text-decoration: none;
 }
+
+.foot--mid >div> p >a{
+    color: white;
+    text-decoration: none;
+}
+
+
 .foot--mid >div> p:hover{
     text-decoration: underline;
 }
@@ -110,4 +120,14 @@
     margin: 0 20px;
     color: white;
     font-size: 12px;
+}
+
+@media screen and (max-width: 600px){
+    .foot--top--right > h4 {
+        display: none;
+    }
+    .foot--mid > div{
+        margin-left: 10px;
+        /* width: 100px; */
+    }
 }

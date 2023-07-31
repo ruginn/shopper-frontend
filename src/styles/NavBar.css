@@ -4,6 +4,9 @@ primary #c1c0d8
 secondary #e0e0eb
 accent #b1b1ce */
 @import url('https://fonts.googleapis.com/css2?family=Raleway:wght@100;200;300;400;500&display=swap');
+.nav--mobile{
+    z-index: 300;
+}
 
 .nav--bar{
     height: 80px;
@@ -48,50 +51,6 @@ accent #b1b1ce */
     text-decoration: none;
 }
 
-.search--nav{
-    width: 450px;
-    height: 40px;
-    border-radius: 20px;
-    border: 1px solid rgb(130, 130, 130);
-    display: flex;
-    align-items: center;
-}
-.search--nav > form{
-    cursor: pointer;
-    display: flex;
-    width: 100%;
-    justify-content: space-between;
-    align-items: center;
-}
-.search--nav > form > input{    
-    outline: none;
-    border: none;
-    background-color: transparent;
-    margin-left: 15px;
-    height: 40px;
-    width: 370px;
-    font-size: 18px;
-}
-
-.search--nav > form > button{
-    z-index: 10;
-    border: 1px solid #cccccc;
-    background-color: #cfcee1;
-    height: 41px;
-    width: 80px;
-    border-radius: 0px 20px 20px 0px;
-    cursor: pointer;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-}
-.search--nav > form > button > svg{
-    height: 20px;
-    width: 20px;  
-    color: rgb(157, 154, 154) 
-}
-
-
 
 .right--nav{
     display: flex;
@@ -119,4 +78,46 @@ accent #b1b1ce */
     color:#494949;
 }
 
+.mobile--search{
+    display: none;
+}
 
+@media screen and (max-width: 825px){
+    .left--nav> a> h1{
+        font-size: 20px;
+    }
+    .left--nav > svg{
+        height: 30px;
+        width: 30px;
+        margin-left: 10px;
+    }
+    .left--nav > a {
+        font-size: 12px;
+    }
+
+    .right--nav {
+        margin-left: 10px;
+    }
+
+    .right--nav > a{
+        font-size: 12px;
+    }
+}
+
+@media screen and (max-width: 750px){
+    .nav--bar{
+        height: 55px;
+    }
+    .search--regular{
+        display: none;
+    }
+    .mobile--search{
+        background-color: whitesmoke;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        margin: -1px;
+        z-index: 200;
+        height: 40px;
+    }
+}

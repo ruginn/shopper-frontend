@@ -2,5 +2,28 @@
     display: flex;
     justify-content: center;
     margin-top: 100px;
-    z-index: 3;
+    z-index: -10;
+}
+
+@media screen and (max-width: 1000px){
+    .testimonial--main{
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        margin-top: 50px;
+    }
+    .testimonial--main > div{
+        margin-top: 80px;
+    }
+}
+
+@media screen and (max-width: 800px){
+    .testimonial--main{
+        display: grid;
+        grid-template-columns: 1fr;
+        margin-top: 50px;
+        justify-items: center;
+    }
+    .testimonial--main > div{
+        margin-top: 80px;
+    }
 }

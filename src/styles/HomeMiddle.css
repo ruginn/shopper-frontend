@@ -45,3 +45,19 @@
     width: 40px;
     height: 40px;
 }
+
+
+@media screen and (max-width: 1000px){
+    .mid--home{
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        justify-items: center;
+    }
+    .mid--home > div{
+        width: 150px;
+    }
+    .circle--home{
+        width: 90px;
+        height: 90px;
+    }
+}

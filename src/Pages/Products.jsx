@@ -20,6 +20,7 @@ export default function Products() {
       searchPara: e.target.outerText
     }
     dispatch(searchParas(searchVal))
+    window.scrollTo(0, 0);
   }
 
   const alphabetizer = () => {

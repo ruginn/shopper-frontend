@@ -9,6 +9,7 @@ import { useDispatch } from 'react-redux'
 import { changeMode } from '../features/general'
 import { getItems, logoutCart } from '../features/cart/cartSlice'
 import { searchParas } from '../features/general'
+import SearchBar from './SearchBar'
 
 
 function NavBar() {
@@ -57,28 +58,36 @@ function NavBar() {
   }
 
   useEffect(()=>{
-    dispatch(searchParas(searchVal))
+  dispatch(searchParas(searchVal)) 
   },[searchVal])
 
   return (
-    <div className='nav--bar sticky'>
-        <div className='left--nav'>
-            <BsHexagon /> 
-            <Link to={`/`}><h1>proteus</h1></Link>
-            <Link to={`/products`}>products</Link>
+    <div className='nav--mobile sticky'> 
+      <div className='nav--bar'>
+          <div className='left--nav'>
+              <BsHexagon /> 
+              <Link to={`/`}><h1>proteus</h1></Link>
+              <Link to={`/products`}>products</Link>
+          </div>
+          {/* <div className="search--nav" onClick={clickSearch}>
+            <form action="submit" onSubmit={onSearch}>
+              <input type="text" placeholder='Search' ref={searchBar} name='searchPara' value={searchPara} onChange={changeSearch} />
+              <button><BsSearch/></button>
+            </form>
+          </div> */}
+          <div className='search--regular'>
+            <SearchBar />
+          </div>
+          <div className='right--nav'>
+              {!user? <Link to={'/register'}>Register</Link>: <></>}
+              {!user ?<Link to={'/login'}>Sign in</Link>: <p onClick={signOut}>Logout</p>}
+              <Link to={'/cart'}><BsCart/>{cartItems}</Link>
+              {/* {mode === 'light'?<BiSun onClick={activateMode}/>: */}
+              {/* <BiMoon onClick={activateMode}/>} */}
+          </div>
         </div>
-        <div className="search--nav" onClick={clickSearch}>
-          <form action="submit" onSubmit={onSearch}>
-            <input type="text" placeholder='Search' ref={searchBar} name='searchPara' value={searchPara} onChange={changeSearch} />
-            <button><BsSearch/></button>
-          </form>
-        </div>
-        <div className='right--nav'>
-            {!user? <Link to={'/register'}>Register</Link>: <></>}
-            {!user ?<Link to={'/login'}>Sign in</Link>: <p onClick={signOut}>Logout</p>}
-            <Link to={'/cart'}><BsCart/>{cartItems}</Link>
-            {/* {mode === 'light'?<BiSun onClick={activateMode}/>: */}
-            {/* <BiMoon onClick={activateMode}/>} */}
+        <div className='mobile--search'>
+          <SearchBar/>
         </div>
     </div>
   )
