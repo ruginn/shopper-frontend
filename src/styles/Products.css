@@ -54,3 +54,13 @@
 .filter--button > button:hover {
     text-decoration: underline;
 }
+
+@media screen and (max-width: 930px){
+    .product--filter{
+        display: none;
+    }
+    .product--right{
+        margin-left: 0;
+    }
+    
+}

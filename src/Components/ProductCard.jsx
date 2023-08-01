@@ -46,7 +46,7 @@ function ProductCard({element}) {
         <ElementBlock element={element}/>
         <div className='product--card--mid'>
             <h3>{element.name}</h3>
-            <p>Category: {element.category}</p>
+            <p>Category: {element.category[0].toUpperCase() + element.category.slice(1)}</p>
             <p>Phase: {element.phase}</p>
         </div>
         </Link>

@@ -1,7 +1,5 @@
-import React, {useEffect, useState} from 'react'
+import React from 'react'
 import { useDispatch, useSelector } from 'react-redux'
-import data from '../periodTable.json'
-import {Link} from 'react-router-dom'
 import '../styles/Products.css'
 import ProductCard from '../Components/ProductCard'
 import { searchParas, alphabetize, reverseAlphabetize, resetChemicals } from '../features/general'
@@ -11,7 +9,6 @@ export default function Products() {
   // const filterElements = data.elements.filter((element) => element.name.toLowerCase().includes('hydro'))
   // console.log(filterElements)
   const dispatch = useDispatch()
-  const searcher = useSelector((state) => state.general.search)
   const elements = useSelector((state) => state.general.chemicals)
   
 

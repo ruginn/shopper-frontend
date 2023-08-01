@@ -26,3 +26,39 @@
     cursor: pointer;
     border-radius: 5px;
 }
+
+@media screen and (max-width: 705px){
+    .product--card--container{
+        width: 90vw;
+    }
+    .product--card--mid{
+        width: 45vw;
+        margin-left: 15px;
+    }
+}
+
+@media screen and (max-width: 650px){
+    .product--card--container{
+        padding: 20px 10px 20px 10px;
+    }
+    .product--card--mid > h3{
+        margin: 5px 0px 10px 0px;
+        font-size: 16px;
+    }
+    .product--card--mid > p{
+        margin: 5px 0px 5px 0px;
+        font-size: 13px;
+    }
+    .product--card--end > h4{
+        font-size: 13px;
+    }
+    .product--card--end > button{
+        width: 100px;
+    }
+}
+
+@media screen and (max-width: 380px){
+    .product--card--end > button{
+        width: 90px;
+    }
+}

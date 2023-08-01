@@ -28,3 +28,41 @@
     margin: 0;
     text-decoration: none;
 }
+
+@media screen and (max-width: 650px){
+    .element--container{
+        width: 70px;
+        height: 90px;
+    }
+    .ec--top{
+        font-size: 12px;
+    }
+    .ec--top >p{
+        margin: 6px 0px 6px 0px;
+    }
+    .ec--mid >h1{
+        font-size: 20px;
+    }
+    .ec--bottom > p{
+        font-size: 12px;
+    }
+}
+
+@media screen and (max-width: 414px){
+    .element--container{
+        width: 60px;
+        height: 75px;
+        border: 4px solid black;
+    }
+    .ec--top >p{
+        display: none;
+    }
+    .ec--mid >h1{
+        font-size: 30px;
+        margin-bottom: 18px;
+        font-weight: 400;
+    }
+    .ec--bottom > p{
+        display: none;
+    }
+}
