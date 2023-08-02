@@ -6,8 +6,6 @@ import { searchParas, alphabetize, reverseAlphabetize, resetChemicals } from '..
 
 
 export default function Products() {
-  // const filterElements = data.elements.filter((element) => element.name.toLowerCase().includes('hydro'))
-  // console.log(filterElements)
   const dispatch = useDispatch()
   const elements = useSelector((state) => state.general.chemicals)
   

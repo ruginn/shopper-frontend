@@ -50,6 +50,7 @@ return (
             {otherElements.map((element) => (
                 <Link to={`/products/${element.name.toLowerCase()}`} key={element.name}>
                     <ElementBlock element={element}/>
+                    <p>{element.name}</p>
                 </Link>
             ))}
             {/* <BsFillArrowRightCircleFill /> */}
