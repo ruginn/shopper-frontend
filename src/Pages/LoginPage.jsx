@@ -49,7 +49,7 @@ function LoginPage() {
         <Link>Forgot Password</Link>
         <button type='submit'>Sign in</button>
       </form>
-      <div className="login--mid">
+      <div className="login--bottom">
         <p>or</p>
         <Link to={'/register'}><button>Create Account</button></Link>
       </div>

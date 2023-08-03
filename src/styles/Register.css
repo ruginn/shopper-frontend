@@ -1,7 +1,7 @@
 .register--main{
     width: 100vw;
     display: flex;
-    height: calc(100vh - 360px);
+    /* height: calc(100vh - 360px); */
     margin-bottom: -100px;
 }
 
@@ -10,23 +10,49 @@
     display: flex;
     flex-direction: column;
     justify-content: center;
-    /* align-items: center; */
     margin-left: 40px;
     margin-bottom: 200px;
+    /* margin-top: 120px; */
 }
 
 .register--left > form{
     display: flex;
     flex-direction: column;
-    width: 300px;
+    /* width: 300px; */
 }
 
-.register--left > button{
-    width: 300px;
+.register--left > form > input{
+    width: 40vw;
+    height: 35px;
+    outline: none;
 }
 
-.register--left > a> button{
-    width: 300px;
+.register--left--bottom {
+    width: 85%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.register--left--bottom > button{
+    width: 40vw;
+    height: 35px;
+    outline: none;
+    border: none;
+    margin: 10px;
+    font-family: sans-serif;
+    font-size: 16px;
+}
+
+
+.register--left--bottom > a> button{
+    width: 40vw;
+    height: 35px;
+    outline: none;
+    border: none;
+    margin: 10px;
+    font-family: sans-serif;
+    font-size: 16px;
 }
 
 
@@ -47,3 +73,45 @@
     margin-left: -45px;
     padding: 45px;
 }
+
+
+
+@media screen and (max-width: 800px){
+    .register--right{
+        display: none;
+    }
+    .register--main{
+        justify-content: center;
+        margin-bottom: 0px;
+        height: auto;
+    }
+    .register--left{
+        justify-content: center;
+        align-items: center;
+        width: 90vw;
+        margin-left: 0px;
+        margin-top: 0px;
+        margin-bottom: 0px;
+    }
+    .register--left> form{
+        width: 90vw;
+    }
+    .register--left > form > input{
+        width: 90vw;
+        margin-left: 0px;
+    }
+    .register--left--bottom > button{
+        width: 90vw;
+    }
+    .register--left--bottom > a > button{
+        width: 90vw;
+    }
+} 
+
+
+/* @media screen and (max-height: 1000px){
+    .register--left{
+        margin-top: 100px;
+        margin-bottom: 100px;
+    }
+} */

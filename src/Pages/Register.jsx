@@ -41,7 +41,7 @@ function Register() {
     return (
     <div className='register--main'>
         <div className='register--left'>
-            <h3>Create Account</h3>
+            <h1>Create Account</h1>
             <p>Create your Proteus account to start earing points and rewards today</p>
             <form onSubmit={onSubmit}>
                 <label htmlFor="firstName">First Name</label>
@@ -56,11 +56,11 @@ function Register() {
                 <input type="text" id='phone' name='phone' value={phone} onChange={onChange} />
             </form>
             <p>By clicking 'Create Account', I acknowledge and agree to Proteus' Privacy Policy, Condition of Use, and the Proteus Terms and Conditions</p>
-            <button onClick={onSubmit}>Create Account</button>
-
-            <p>or</p>
-            <Link to='/login'><button>Sign in</button></Link>
-       
+            <div className='register--left--bottom'>
+                <button onClick={onSubmit}>Create Account</button>
+                <p className='reg--or'>or</p>
+                <Link to='/login'><button>Sign in</button></Link>
+            </div>
         </div>
         <div className="register--right">
             <div>
