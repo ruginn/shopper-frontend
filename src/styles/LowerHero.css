@@ -11,6 +11,9 @@
     font-size: 18px;
 }
 
+.lh--left> ul>li>h3{
+    margin: 4px;
+}
 
 
 .lh--right{

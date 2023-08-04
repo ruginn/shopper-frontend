@@ -15,6 +15,9 @@
     margin-right: 100px;
     margin-top: 90px;
 }
+.small--block{
+    display: none;
+}
 .pp--center{
     display: flex;
     flex-direction: column;
@@ -88,6 +91,12 @@
 }
 
 @media screen and (max-width: 700px){
+    .small--block{
+        display: inline;
+    }
+    .big--block{
+        display: none;
+    }
     .product--main{
         flex-direction: column;
         justify-content: center;

@@ -51,13 +51,13 @@ function Cart() {
         {items?.length >= 1 && <div className="cart--right">
           <div className="order--summary">
             <h3>Order Summary</h3>
-            <p>Subtotal (1 item)</p>
-            <h4>${numComma(Math.round(total * 100)/100)}</h4>
-            <p>Estimated Tax</p>
+            <p>Total ({cartItems} Item{cartItems > 1?'s':''})</p>
+            <h2>${numComma(Math.round(total * 100)/100)}</h2>
+            {/* <p>Estimated Tax</p>
             <p>${numComma(estimatedTax)}</p>
             <h5>Estimated Total</h5>
-            <h2>${numComma(estimatedTotal)}</h2>
-            <button onClick={clickCheckout}>PROCEED TO CHECKOUT</button>
+            <h2>${numComma(estimatedTotal)}</h2> */}
+            <button onClick={clickCheckout}>Checkout</button>
           </div>
         </div>}
         {/* {items?.length === 0 || cartItems === 0 &&  */}

@@ -2,6 +2,7 @@ import React, {useEffect, useState} from 'react'
 import {useParams} from 'react-router-dom'
 import data from '../periodTable.json'
 import ElementBlock from '../Components/ElementBlock'
+import ElementBlockSmall from '../Components/ElementBlockSmall'
 import '../styles/ProductPage.css'
 import SimilarProducts from '../Components/SimilarProducts'
 import PeriodicTable from '../Components/PeriodicTable'
@@ -75,8 +76,15 @@ function ProductPage() {
     <div className='product--item--container'>
       <div className='product--main'>
         <div className='pp--left'>
-            <ElementBlock element={element} />
-          </div>
+            <div className='big--block'>
+              <ElementBlock element={element} />
+            </div>
+            <div className='small--block'>
+              <ElementBlockSmall element={element} />
+            </div>
+            {/* <ElementBlock element={element} />
+            <ElementBlockSmall element={element} /> */}
+        </div>
           <div className='pp--center'>
             <h1>{element.name}</h1>
             <h3>{element.category.toUpperCase()}</h3>
